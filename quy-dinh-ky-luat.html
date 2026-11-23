@@ -1,0 +1,656 @@
+﻿
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#082d59">
+<title>Quy định kỷ luật Quân đội</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --navy: #082d59;
+    --blue: #14549a;
+    --gold: #e5bd64;
+    --white: #ffffff;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    min-height: 100vh;
+    padding: 35px 20px 50px;
+    color: #18334f;
+    background:
+        linear-gradient(rgba(3, 20, 43, .76), rgba(3, 20, 43, .82)),
+        url("background.jpg") center center / cover fixed no-repeat;
+}
+
+/* NÚT QUAY LẠI */
+.back {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 1000;
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+    padding: 11px 19px;
+    color: white;
+    background: rgba(8, 45, 89, .92);
+    border: 1px solid rgba(255,255,255,.3);
+    border-radius: 30px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: bold;
+    box-shadow: 0 5px 18px rgba(0,0,0,.25);
+    transition: .3s;
+}
+
+.back:hover {
+    background: #d6a943;
+    color: #102c4b;
+    transform: translateY(-2px);
+}
+
+/* KHUNG CHÍNH */
+.container {
+    max-width: 1100px;
+    margin: 45px auto 0;
+}
+
+/* TIÊU ĐỀ */
+.hero {
+    position: relative;
+    overflow: hidden;
+    text-align: center;
+    padding: 42px 25px 38px;
+    margin-bottom: 32px;
+    border: 1px solid rgba(255,255,255,.25);
+    border-radius: 24px;
+    background: linear-gradient(135deg,
+        rgba(7, 39, 79, .96),
+        rgba(19, 81, 139, .91));
+    box-shadow: 0 15px 40px rgba(0,0,0,.25);
+}
+
+.hero::before,
+.hero::after {
+    content: "";
+    position: absolute;
+    border: 1px solid rgba(229,189,100,.2);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.hero::before {
+    width: 250px;
+    height: 250px;
+    top: -150px;
+    left: -70px;
+}
+
+.hero::after {
+    width: 300px;
+    height: 300px;
+    bottom: -210px;
+    right: -80px;
+}
+
+.hero-icon {
+    width: 76px;
+    height: 76px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin: 0 auto 16px;
+    border: 2px solid var(--gold);
+    border-radius: 50%;
+    background: rgba(255,255,255,.1);
+    font-size: 37px;
+    box-shadow: 0 0 25px rgba(229,189,100,.18);
+}
+
+.hero h1 {
+    position: relative;
+    color: #fff;
+    font-size: clamp(24px, 4vw, 36px);
+    letter-spacing: 1.5px;
+    line-height: 1.35;
+    margin-bottom: 10px;
+}
+
+.hero .unit {
+    color: var(--gold);
+    font-weight: bold;
+    letter-spacing: 3px;
+    font-size: 14px;
+    margin-bottom: 17px;
+}
+
+.hero .description {
+    position: relative;
+    max-width: 720px;
+    margin: auto;
+    color: rgba(255,255,255,.85);
+    font-size: 15px;
+    line-height: 1.7;
+}
+
+/* TIÊU ĐỀ DANH SÁCH */
+.section-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    margin: 0 4px 18px;
+}
+
+.section-heading h2 {
+    color: white;
+    font-size: 21px;
+    letter-spacing: .5px;
+}
+
+.section-heading .count {
+    color: #f5d78d;
+    border: 1px solid rgba(229,189,100,.5);
+    background: rgba(229,189,100,.12);
+    padding: 7px 14px;
+    border-radius: 20px;
+    font-size: 13px;
+    white-space: nowrap;
+}
+
+/* DANH SÁCH CHUYÊN ĐỀ */
+.accordion-list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 17px;
+}
+
+.accordion-item {
+    overflow: hidden;
+    border-radius: 17px;
+    background: rgba(255,255,255,.96);
+    border: 1px solid rgba(255,255,255,.7);
+    box-shadow: 0 8px 25px rgba(0,0,0,.16);
+    transition: transform .25s, box-shadow .25s;
+}
+
+.accordion-item:hover {
+    transform: translateY(-3px);
+    box-shadow: 0 12px 30px rgba(0,0,0,.23);
+}
+
+.accordion-header {
+    display: flex;
+    align-items: center;
+    gap: 13px;
+    padding: 19px 18px;
+    cursor: pointer;
+    user-select: none;
+    min-height: 94px;
+}
+
+.number {
+    flex-shrink: 0;
+    width: 43px;
+    height: 43px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 13px;
+    color: white;
+    font-size: 17px;
+    font-weight: bold;
+    background: linear-gradient(145deg, #0a3568, #1b65a9);
+    box-shadow: 0 4px 10px rgba(8,45,89,.2);
+}
+
+.header-text {
+    flex: 1;
+}
+
+.header-text h3 {
+    color: #103c6c;
+    font-size: 16px;
+    line-height: 1.4;
+    margin-bottom: 5px;
+}
+
+.header-text span {
+    color: #71849a;
+    font-size: 12px;
+}
+
+.arrow {
+    flex-shrink: 0;
+    width: 29px;
+    height: 29px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 50%;
+    color: #164b80;
+    background: #eaf1f8;
+    font-size: 15px;
+    transition: transform .3s, background .3s;
+}
+
+.accordion-item.active .arrow {
+    transform: rotate(180deg);
+    color: white;
+    background: #164b80;
+}
+
+.accordion-content {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows .35s ease;
+}
+
+.accordion-item.active .accordion-content {
+    grid-template-rows: 1fr;
+}
+
+.content-inner {
+    overflow: hidden;
+}
+
+.content-body {
+    padding: 0 20px 21px;
+    border-top: 1px solid #e6edf4;
+    margin: 0 18px;
+}
+
+.content-body p {
+    color: #435970;
+    font-size: 14px;
+    line-height: 1.8;
+    margin-top: 15px;
+    text-align: justify;
+}
+
+.content-body h4 {
+    color: #174c7f;
+    font-size: 14px;
+    margin-top: 17px;
+    margin-bottom: 5px;
+}
+
+.content-body ul {
+    padding-left: 20px;
+    margin-top: 8px;
+}
+
+.content-body li {
+    color: #435970;
+    font-size: 14px;
+    line-height: 1.75;
+    margin-bottom: 5px;
+}
+
+/* GHI NHỚ */
+.remember {
+    margin-top: 25px;
+    padding: 23px 25px;
+    border-radius: 18px;
+    border: 1px solid rgba(229,189,100,.5);
+    background: linear-gradient(120deg,
+        rgba(255,255,255,.97),
+        rgba(255,248,229,.96));
+    box-shadow: 0 8px 25px rgba(0,0,0,.15);
+}
+
+.remember h3 {
+    color: #103c6c;
+    font-size: 17px;
+    margin-bottom: 10px;
+}
+
+.remember p {
+    color: #53677b;
+    font-size: 14px;
+    line-height: 1.8;
+    text-align: justify;
+}
+
+.remember strong {
+    color: #174c7f;
+}
+
+/* RESPONSIVE */
+@media (max-width: 700px) {
+    body {
+        padding: 25px 13px 35px;
+        background-attachment: scroll;
+    }
+
+    .container {
+        margin-top: 65px;
+    }
+
+    .hero {
+        padding: 32px 17px;
+        border-radius: 19px;
+    }
+
+    .hero .unit {
+        letter-spacing: 2px;
+    }
+
+    .accordion-list {
+        grid-template-columns: 1fr;
+        gap: 13px;
+    }
+
+    .accordion-header {
+        padding: 16px 13px;
+        min-height: 84px;
+    }
+
+    .header-text h3 {
+        font-size: 15px;
+    }
+
+    .section-heading h2 {
+        font-size: 18px;
+    }
+
+    .remember {
+        padding: 20px;
+    }
+
+    .back {
+        top: 12px;
+        left: 12px;
+        padding: 9px 14px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<a href="pho-bien-gdpl.html" class="back">
+    <span>⟵</span> Quay lại
+</a>
+
+<main class="container">
+
+    <header class="hero">
+        <div class="hero-icon">⚖️</div>
+        <h1>QUY ĐỊNH KỶ LUẬT QUÂN ĐỘI</h1>
+        <div class="unit">TIỂU ĐOÀN 8, TRUNG ĐOÀN 95</div>
+        <p class="description">
+            Tuyên truyền, giáo dục nâng cao nhận thức, ý thức tự giác
+            chấp hành pháp luật Nhà nước, kỷ luật Quân đội và quy định
+            của đơn vị; xây dựng nền nếp chính quy, môi trường văn hóa
+            quân sự lành mạnh.
+        </p>
+    </header>
+
+    <div class="section-heading">
+        <h2>KIẾN THỨC TRỌNG TÂM</h2>
+        <span class="count">05 CHUYÊN ĐỀ</span>
+    </div>
+
+    <div class="accordion-list">
+
+        <!-- CHUYÊN ĐỀ 1 -->
+        <div class="accordion-item">
+            <div class="accordion-header" onclick="toggleContent(this)">
+                <div class="number">01</div>
+                <div class="header-text">
+                    <h3>Nguyên tắc và ý nghĩa của việc chấp hành kỷ luật</h3>
+                    <span>Nền tảng xây dựng đơn vị vững mạnh</span>
+                </div>
+                <div class="arrow">⌄</div>
+            </div>
+
+            <div class="accordion-content">
+                <div class="content-inner">
+                    <div class="content-body">
+                        <p>
+                            Kỷ luật là một trong những yếu tố quan trọng
+                            quyết định sức mạnh chiến đấu của Quân đội.
+                            Chấp hành nghiêm kỷ luật thể hiện bản lĩnh,
+                            ý thức trách nhiệm, tinh thần tự giác và tính
+                            tổ chức của mỗi quân nhân.
+                        </p>
+
+                        <h4>Những nguyên tắc cơ bản</h4>
+                        <ul>
+                            <li>Đặt dưới sự lãnh đạo tuyệt đối, trực tiếp về mọi mặt của Đảng; sự quản lý, chỉ huy thống nhất trong Quân đội.</li>
+                            <li>Mọi quân nhân bình đẳng trước pháp luật và kỷ luật Quân đội, không có ngoại lệ.</li>
+                            <li>Kết hợp giáo dục, thuyết phục với duy trì nghiêm kỷ luật và xử lý đúng quy định.</li>
+                            <li>Đề cao tính tự giác, tinh thần trách nhiệm và ý thức chấp hành từ mỗi cá nhân.</li>
+                        </ul>
+
+                        <h4>Ý nghĩa của việc chấp hành kỷ luật</h4>
+                        <p>
+                            Góp phần giữ vững sự đoàn kết, thống nhất;
+                            bảo đảm an toàn trong huấn luyện, công tác,
+                            sinh hoạt; nâng cao chất lượng tổng hợp và
+                            sức mạnh chiến đấu của đơn vị.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- CHUYÊN ĐỀ 2 -->
+        <div class="accordion-item">
+            <div class="accordion-header" onclick="toggleContent(this)">
+                <div class="number">02</div>
+                <div class="header-text">
+                    <h3>Trách nhiệm của quân nhân trong chấp hành kỷ luật</h3>
+                    <span>Trách nhiệm cá nhân và tập thể</span>
+                </div>
+                <div class="arrow">⌄</div>
+            </div>
+
+            <div class="accordion-content">
+                <div class="content-inner">
+                    <div class="content-body">
+                        <p>
+                            Mỗi quân nhân phải nhận thức đầy đủ trách nhiệm
+                            của mình trong thực hiện nhiệm vụ, chấp hành
+                            mệnh lệnh, điều lệnh, điều lệ và các quy định
+                            của đơn vị. Kỷ luật phải được thực hiện thường
+                            xuyên, liên tục, cả trong và ngoài giờ công tác.
+                        </p>
+
+                        <h4>Trách nhiệm cụ thể</h4>
+                        <ul>
+                            <li>Chấp hành nghiêm pháp luật Nhà nước, kỷ luật Quân đội, mệnh lệnh của người chỉ huy và quy định của đơn vị.</li>
+                            <li>Thực hiện đúng chức trách, nhiệm vụ được giao; không tự ý bỏ vị trí, thay đổi nhiệm vụ hoặc làm việc riêng khi đang thực hiện nhiệm vụ.</li>
+                            <li>Giữ gìn đoàn kết nội bộ, tôn trọng đồng chí, đồng đội; có thái độ đúng mực trong giao tiếp và ứng xử.</li>
+                            <li>Bảo vệ bí mật quân sự, bí mật Nhà nước; sử dụng mạng xã hội đúng quy định, không đăng tải thông tin trái phép.</li>
+                            <li>Chủ động phát hiện, đấu tranh, ngăn ngừa những biểu hiện vi phạm kỷ luật và mất an toàn trong đơn vị.</li>
+                        </ul>
+
+                        <p>
+                            Mỗi quân nhân cần thường xuyên tự soi, tự sửa,
+                            lấy việc chấp hành kỷ luật làm tiêu chí quan
+                            trọng trong rèn luyện, đánh giá phẩm chất và
+                            kết quả hoàn thành nhiệm vụ.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- CHUYÊN ĐỀ 3 -->
+        <div class="accordion-item">
+            <div class="accordion-header" onclick="toggleContent(this)">
+                <div class="number">03</div>
+                <div class="header-text">
+                    <h3>Những hành vi vi phạm và hình thức xử lý</h3>
+                    <span>Nhận diện vi phạm, chấp hành nghiêm quy định</span>
+                </div>
+                <div class="arrow">⌄</div>
+            </div>
+
+            <div class="accordion-content">
+                <div class="content-inner">
+                    <div class="content-body">
+                        <p>
+                            Vi phạm kỷ luật là hành vi không chấp hành
+                            hoặc chấp hành không đúng các quy định của
+                            pháp luật, kỷ luật Quân đội và quy định của
+                            đơn vị. Tùy tính chất, mức độ, hậu quả và
+                            các tình tiết liên quan, hành vi vi phạm
+                            được xem xét, xử lý theo quy định.
+                        </p>
+
+                        <h4>Một số biểu hiện cần phòng ngừa</h4>
+                        <ul>
+                            <li>Không chấp hành mệnh lệnh, nhiệm vụ hoặc quy định trong huấn luyện, công tác.</li>
+                            <li>Vi phạm chế độ trực, chế độ sinh hoạt, lễ tiết tác phong và nền nếp chính quy.</li>
+                            <li>Sử dụng rượu, bia hoặc các chất bị cấm trái quy định; gây mất an toàn trong đơn vị.</li>
+                            <li>Làm mất, hư hỏng, sử dụng sai mục đích vũ khí, trang bị, tài sản được giao quản lý.</li>
+                            <li>Vi phạm quy định về bảo vệ bí mật, phát ngôn, cung cấp hoặc đăng tải thông tin.</li>
+                        </ul>
+
+                        <h4>Nguyên tắc xử lý</h4>
+                        <p>
+                            Việc xử lý phải bảo đảm đúng thẩm quyền,
+                            trình tự, thủ tục; khách quan, công bằng,
+                            chính xác, kịp thời và căn cứ vào tính chất,
+                            mức độ vi phạm. Không bao che, dung túng
+                            nhưng cũng không được xử lý tùy tiện.
+                        </p>
+                        <p>
+                            Tùy trường hợp, quân nhân có thể bị xem xét
+                            xử lý kỷ luật, xử phạt vi phạm hành chính
+                            hoặc truy cứu trách nhiệm hình sự theo
+                            quy định pháp luật. Không phải mọi vi phạm
+                            đều áp dụng đồng thời các hình thức này.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- CHUYÊN ĐỀ 4 -->
+        <div class="accordion-item">
+            <div class="accordion-header" onclick="toggleContent(this)">
+                <div class="number">04</div>
+                <div class="header-text">
+                    <h3>Trách nhiệm của người chỉ huy và công tác quản lý kỷ luật</h3>
+                    <span>Duy trì nền nếp, phòng ngừa vi phạm</span>
+                </div>
+                <div class="arrow">⌄</div>
+            </div>
+
+            <div class="accordion-content">
+                <div class="content-inner">
+                    <div class="content-body">
+                        <p>
+                            Người chỉ huy các cấp có trách nhiệm tổ chức
+                            quản lý, giáo dục, rèn luyện bộ đội; duy trì
+                            nghiêm chế độ, nền nếp chính quy và kỷ luật
+                            trong phạm vi quyền hạn được giao.
+                        </p>
+
+                        <h4>Nội dung quản lý, duy trì kỷ luật</h4>
+                        <ul>
+                            <li>Quán triệt, phổ biến đầy đủ các văn bản, quy định và mệnh lệnh đến từng quân nhân.</li>
+                            <li>Duy trì nghiêm chế độ trực, chế độ ngày, tuần, chế độ học tập, huấn luyện và công tác.</li>
+                            <li>Nắm chắc tình hình tư tưởng, quan hệ xã hội, hoàn cảnh và diễn biến tư tưởng của quân nhân.</li>
+                            <li>Thường xuyên kiểm tra, nhắc nhở, phát hiện sớm những biểu hiện vi phạm để có biện pháp phòng ngừa.</li>
+                            <li>Kịp thời biểu dương, khen thưởng tập thể, cá nhân có thành tích; xử lý nghiêm các vi phạm theo thẩm quyền.</li>
+                        </ul>
+
+                        <h4>Trách nhiệm nêu gương</h4>
+                        <p>
+                            Cán bộ, chỉ huy phải gương mẫu trong lời nói
+                            và hành động, nói đi đôi với làm; công tâm,
+                            khách quan trong quản lý, đánh giá và xử lý
+                            vi phạm. Cấp trên phải chịu trách nhiệm về
+                            kết quả quản lý, duy trì kỷ luật thuộc phạm
+                            vi được phân công.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- CHUYÊN ĐỀ 5 -->
+        <div class="accordion-item">
+            <div class="accordion-header" onclick="toggleContent(this)">
+                <div class="number">05</div>
+                <div class="header-text">
+                    <h3>Xây dựng nền nếp chính quy, phòng ngừa vi phạm</h3>
+                    <span>Rèn luyện ý thức tự giác, xây dựng đơn vị an toàn</span>
+                </div>
+                <div class="arrow">⌄</div>
+            </div>
+
+            <div class="accordion-content">
+                <div class="content-inner">
+                    <div class="content-body">
+                        <p>
+                            Xây dựng nền nếp chính quy và quản lý kỷ luật
+                            là nhiệm vụ thường xuyên, liên tục, đòi hỏi
+                            sự tham gia tích cực của mọi tổ chức và cá
+                            nhân trong đơn vị. Mỗi quân nhân phải tự giác
+                            rèn luyện, hình thành thói quen làm việc theo
+                            điều lệnh và quy định.
+                        </p>
+
+                        <h4>Một số biện pháp thực hiện</h4>
+                        <ul>
+                            <li>Duy trì nghiêm điều lệnh quản lý bộ đội, điều lệnh đội ngũ và các chế độ quy định.</li>
+                            <li>Thực hiện tốt công tác giáo dục chính trị, phổ biến pháp luật và tuyên truyền kỷ luật.</li>
+                            <li>Gắn chấp hành kỷ luật với phong trào thi đua quyết thắng, xây dựng đơn vị vững mạnh toàn diện.</li>
+                            <li>Chủ động phòng ngừa tai nạn, mất an toàn trong huấn luyện, lao động, tham gia giao thông và sinh hoạt.</li>
+                            <li>Xây dựng môi trường văn hóa lành mạnh, đoàn kết, dân chủ, kỷ cương và trách nhiệm.</li>
+                        </ul>
+
+                        <h4>Thông điệp hành động</h4>
+                        <p>
+                            Tự giác chấp hành kỷ luật không chỉ là yêu
+                            cầu bắt buộc mà còn là danh dự, trách nhiệm
+                            và phẩm chất của người quân nhân cách mạng.
+                            Mỗi người hãy bắt đầu từ những việc làm cụ
+                            thể hằng ngày, góp phần xây dựng đơn vị
+                            chính quy, mẫu mực, an toàn.
+                        </p>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="remember">
+        <h3>🎖️ GHI NHỚ VÀ HÀNH ĐỘNG</h3>
+        <p>
+            <strong>Kỷ luật là sức mạnh của Quân đội.</strong>
+            Mỗi cán bộ, chiến sĩ cần nêu cao tinh thần tự giác,
+            nghiêm túc chấp hành pháp luật Nhà nước, kỷ luật Quân đội
+            và quy định của đơn vị; nói đi đôi với làm, xây dựng
+            đoàn kết nội bộ, giữ nghiêm nền nếp chính quy, góp phần
+            xây dựng đơn vị vững mạnh toàn diện.
+        </p>
+    </div>
+
+</main>
+
+<script>
+function toggleContent(header) {
+    const item = header.closest(".accordion-item");
+    item.classList.toggle("active");
+}
+</script>
+
+</body>
+</html>

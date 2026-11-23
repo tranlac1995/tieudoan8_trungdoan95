@@ -1,0 +1,514 @@
+﻿
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#092d59">
+<title>Phổ biến giáo dục pháp luật - Phòng Hồ Chí Minh</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --gold: #f2d18a;
+    --navy: #082b50;
+}
+
+/* TOÀN TRANG */
+html {
+    min-height: 100%;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    min-height: 100vh;
+    min-height: 100svh;
+    padding: 20px;
+    color: white;
+    overflow-x: hidden;
+
+    /* ẢNH NỀN TOÀN MÀN HÌNH */
+    background-color: #102e4d;
+    background-image:
+        linear-gradient(
+            135deg,
+            rgba(4, 20, 40, 0.12),
+            rgba(4, 20, 40, 0.22)
+        ),
+        url("./background.jpg");
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+/* TIÊU ĐỀ */
+header {
+    width: min(100%, 1150px);
+    margin: 0 auto;
+    padding: 20px 15px;
+    text-align: center;
+
+    background: rgba(5, 32, 61, 0.48);
+    border: 1px solid rgba(255,255,255,0.32);
+    border-bottom: 3px solid var(--gold);
+    border-radius: 18px;
+
+    backdrop-filter: blur(7px);
+    -webkit-backdrop-filter: blur(7px);
+
+    box-shadow: 0 8px 25px rgba(0,0,0,0.22);
+}
+
+header h1 {
+    font-size: clamp(1.3rem, 3vw, 2rem);
+    font-weight: 900;
+    letter-spacing: 1.5px;
+    color: #fff;
+    text-shadow: 0 3px 8px rgba(0,0,0,0.65);
+}
+
+header p {
+    margin-top: 8px;
+    color: #ffe2a0;
+    font-size: 0.9rem;
+    font-weight: bold;
+    letter-spacing: 3px;
+}
+
+/* KHU VỰC SƠ ĐỒ */
+section {
+    width: 100%;
+    max-width: 1050px;
+    margin: 25px auto 0;
+}
+
+/* SÂN KHẤU BỐ TRÍ 5 HÌNH TRÒN */
+.circle-stage {
+    position: relative;
+    width: 100%;
+    max-width: 700px;
+    height: 500px;
+    margin: 0 auto;
+}
+
+/* ĐƯỜNG TRANG TRÍ NỐI CÁC HÌNH */
+.orbit {
+    position: absolute;
+    width: 510px;
+    height: 510px;
+    border: 1px solid rgba(255, 225, 160, 0.38);
+    border-radius: 50%;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    box-shadow: 0 0 25px rgba(255, 220, 140, 0.10);
+}
+
+.orbit::before {
+    content: "";
+    position: absolute;
+    inset: 18px;
+    border: 1px dashed rgba(255,255,255,0.22);
+    border-radius: 50%;
+}
+
+/* HÌNH TRÒN NỘI DUNG */
+.circle-item {
+    position: absolute;
+    width: 165px;
+    height: 165px;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    text-align: center;
+    text-decoration: none;
+    color: #fff;
+
+    padding: 15px;
+    border-radius: 50%;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(34, 115, 178, 0.88),
+            rgba(5, 39, 78, 0.90)
+        );
+
+    border: 3px solid var(--gold);
+
+    box-shadow:
+        0 10px 28px rgba(0,0,0,0.35),
+        inset 0 0 20px rgba(255,255,255,0.15),
+        0 0 14px rgba(239, 202, 120, 0.18);
+
+    backdrop-filter: blur(7px);
+    -webkit-backdrop-filter: blur(7px);
+
+    transition: transform 0.3s ease,
+                box-shadow 0.3s ease,
+                background 0.3s ease;
+
+    z-index: 3;
+}
+
+.circle-item::before {
+    content: "";
+    position: absolute;
+    inset: 8px;
+    border: 1px solid rgba(255,255,255,0.42);
+    border-radius: 50%;
+    pointer-events: none;
+}
+
+.circle-item:hover {
+    transform: translate(-50%, -50%) scale(1.09);
+    border-color: #fff3c9;
+
+    background:
+        linear-gradient(
+            145deg,
+            rgba(48, 145, 205, 0.96),
+            rgba(8, 56, 105, 0.97)
+        );
+
+    box-shadow:
+        0 15px 35px rgba(0,0,0,0.4),
+        0 0 28px rgba(255,220,130,0.55);
+}
+
+/* BIỂU TƯỢNG */
+.circle-icon {
+    font-size: 2.8rem;
+    line-height: 1;
+    margin-bottom: 13px;
+    filter: drop-shadow(0 3px 4px rgba(0,0,0,0.4));
+}
+
+/* TÊN NỘI DUNG */
+.circle-label {
+    font-size: 0.88rem;
+    line-height: 1.4;
+    font-weight: 900;
+    text-transform: uppercase;
+    text-shadow: 0 2px 5px rgba(0,0,0,0.55);
+}
+
+/* VỊ TRÍ 4 HÌNH TRÒN */
+.item-top {
+    left: 50%;
+    top: 8%;
+    transform: translate(-50%, -50%);
+}
+
+.item-bottom {
+    left: 50%;
+    top: 92%;
+    transform: translate(-50%, -50%);
+}
+
+.item-left {
+    left: 13%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+.item-right {
+    left: 87%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* HÌNH TRÒN TRUNG TÂM */
+.center-circle {
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+
+    width: 205px;
+    height: 205px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-direction: column;
+
+    padding: 22px;
+    text-align: center;
+    border-radius: 50%;
+
+    background:
+        radial-gradient(
+            circle at 35% 25%,
+            #f8e5b0,
+            #d5a94f 58%,
+            #91601e
+        );
+
+    color: #17385b;
+    border: 6px solid #fff0c0;
+
+    box-shadow:
+        0 0 0 8px rgba(231, 190, 99, 0.23),
+        0 0 35px rgba(255, 220, 135, 0.40),
+        0 15px 35px rgba(0,0,0,0.42),
+        inset 0 0 20px rgba(255,255,255,0.45);
+
+    z-index: 5;
+}
+
+.center-circle::before {
+    content: "";
+    position: absolute;
+    inset: 10px;
+    border: 2px dashed rgba(105, 69, 20, 0.55);
+    border-radius: 50%;
+}
+
+.center-icon {
+    font-size: 3rem;
+    margin-bottom: 10px;
+    position: relative;
+}
+
+.center-circle h2 {
+    font-size: 1.08rem;
+    line-height: 1.45;
+    font-weight: 900;
+    letter-spacing: 0.5px;
+    position: relative;
+}
+
+/* NÚT QUAY LẠI */
+.back-area {
+    position: fixed;
+    top: 20px;
+    left: 20px;
+    z-index: 1000;
+}
+
+.back-button {
+    display: inline-block;
+    padding: 12px 27px;
+
+    color: #17385b;
+    background: linear-gradient(135deg, #ffedbd, #d7ad58);
+
+    text-decoration: none;
+    font-weight: 900;
+    border-radius: 30px;
+
+    border: 1px solid rgba(255,255,255,0.65);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.3);
+
+    transition: 0.25s;
+}
+
+.back-button:hover {
+    transform: translateY(-3px);
+    background: #fff2cc;
+}
+
+/* MÀN HÌNH NHỎ */
+@media(max-width: 700px) {
+    body {
+        padding: 12px;
+        background-attachment: scroll;
+    }
+
+    header {
+        padding: 17px 10px;
+    }
+
+    header p {
+        font-size: 0.75rem;
+        letter-spacing: 2px;
+    }
+
+    section {
+        margin-top: 15px;
+    }
+
+    .circle-stage {
+        height: 490px;
+        max-width: 480px;
+    }
+
+    .orbit {
+        width: 330px;
+        height: 330px;
+    }
+
+    .circle-item {
+        width: 125px;
+        height: 125px;
+        padding: 10px;
+    }
+
+    .circle-icon {
+        font-size: 2.1rem;
+        margin-bottom: 8px;
+    }
+
+    .circle-label {
+        font-size: 0.72rem;
+    }
+
+    .center-circle {
+        width: 155px;
+        height: 155px;
+        padding: 17px;
+    }
+
+    .center-icon {
+        font-size: 2.3rem;
+        margin-bottom: 7px;
+    }
+
+    .center-circle h2 {
+        font-size: 0.88rem;
+    }
+
+    .item-top {
+        top: 13%;
+    }
+
+    .item-bottom {
+        top: 87%;
+    }
+
+    .item-left {
+        left: 17%;
+    }
+
+    .item-right {
+        left: 83%;
+    }
+
+    .back-area {
+        margin-top: 0;
+    }
+}
+
+/* ĐIỆN THOẠI RẤT NHỎ */
+@media(max-width: 380px) {
+    .circle-stage {
+        height: 430px;
+    }
+
+    .orbit {
+        width: 285px;
+        height: 285px;
+    }
+
+    .circle-item {
+        width: 108px;
+        height: 108px;
+        padding: 8px;
+    }
+
+    .circle-icon {
+        font-size: 1.8rem;
+        margin-bottom: 6px;
+    }
+
+    .circle-label {
+        font-size: 0.64rem;
+    }
+
+    .center-circle {
+        width: 137px;
+        height: 137px;
+    }
+
+    .center-icon {
+        font-size: 2rem;
+    }
+
+    .center-circle h2 {
+        font-size: 0.77rem;
+    }
+
+    .item-left {
+        left: 15%;
+    }
+
+    .item-right {
+        left: 85%;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>PHỔ BIẾN GIÁO DỤC PHÁP LUẬT</h1>
+    <p>TIỂU ĐOÀN 8, TRUNG ĐOÀN 95</p>
+</header>
+
+<section>
+
+<div class="circle-stage">
+
+    <!-- VÒNG TRÒN TRANG TRÍ -->
+    <div class="orbit"></div>
+
+    <!-- NỘI DUNG PHÍA TRÊN -->
+    <a href="hien-phap.html" class="circle-item item-top">
+        <div class="circle-icon">📜</div>
+        <div class="circle-label">
+            HIẾN PHÁP &<br>PHÁP LUẬT CƠ BẢN
+        </div>
+    </a>
+
+    <!-- NỘI DUNG BÊN TRÁI -->
+    <a href="luat-quan-doi.html" class="circle-item item-left">
+        <div class="circle-icon">⚖️</div>
+        <div class="circle-label">
+            LUẬT<br>QUÂN ĐỘI
+        </div>
+    </a>
+
+    <!-- NỘI DUNG BÊN PHẢI -->
+    <a href="quy-dinh-ky-luat.html" class="circle-item item-right">
+        <div class="circle-icon">📋</div>
+        <div class="circle-label">
+            QUY ĐỊNH<br>KỶ LUẬT
+        </div>
+    </a>
+
+    <!-- NỘI DUNG PHÍA DƯỚI -->
+    <a href="quyen-nghia-vu.html" class="circle-item item-bottom">
+        <div class="circle-icon">🪖</div>
+        <div class="circle-label">
+            QUYỀN & NGHĨA VỤ<br>QUÂN NHÂN
+        </div>
+    </a>
+
+    <!-- HÌNH TRÒN TRUNG TÂM -->
+    <div class="center-circle">
+        <div class="center-icon">⚖️</div>
+        <h2>TUYÊN TRUYỀN<br>PHÁP LUẬT</h2>
+    </div>
+
+</div>
+
+<div class="back-area">
+    <a href="index.html" class="back-button">
+        ⬅ QUAY LẠI TRANG CHỦ    </a>
+</div>
+
+</section>
+
+</body>
+</html>

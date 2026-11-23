@@ -1,0 +1,1076 @@
+﻿
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#092f27">
+<title>Bình dân học vụ số | Phòng Hồ Chí Minh</title>
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Be+Vietnam+Pro:wght@400;500;600;700;800;900&display=swap" rel="stylesheet">
+
+<style>
+:root {
+    --green-dark:#092f27;
+    --green:#105b43;
+    --green-light:#16845c;
+    --gold:#e5bd54;
+    --gold-light:#fff0bd;
+    --bg:#f1f5f1;
+    --text:#1d3029;
+}
+
+* {
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body {
+    font-family:'Be Vietnam Pro',Arial,sans-serif;
+    background:var(--bg);
+    color:var(--text);
+    min-height:100vh;
+}
+
+a {
+    text-decoration:none;
+    color:inherit;
+}
+
+button {
+    font-family:inherit;
+}
+
+/* HEADER */
+
+.topbar {
+    background:#06271f;
+    color:#d9e8df;
+    padding:9px 5%;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    font-size:12px;
+    letter-spacing:.4px;
+}
+
+.topbar span:last-child {
+    color:var(--gold);
+}
+
+/* HERO */
+
+.hero {
+    position:relative;
+    overflow:hidden;
+    background:
+    radial-gradient(circle at 85% 20%,rgba(229,189,84,.18),transparent 25%),
+    linear-gradient(120deg,#082e25,#105b43 65%,#16714f);
+    color:white;
+    padding:35px 6% 55px;
+}
+
+.hero:before {
+    content:"";
+    position:absolute;
+    width:380px;
+    height:380px;
+    border:1px solid rgba(255,255,255,.1);
+    border-radius:50%;
+    right:-100px;
+    top:-160px;
+    box-shadow:0 0 0 35px rgba(255,255,255,.025),
+               0 0 0 75px rgba(255,255,255,.02);
+}
+
+.hero-content {
+    max-width:1250px;
+    margin:auto;
+    position:relative;
+    z-index:1;
+}
+
+.back {
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    color:white;
+    border:1px solid rgba(255,255,255,.3);
+    padding:9px 16px;
+    border-radius:30px;
+    font-size:13px;
+    margin-bottom:35px;
+    transition:.3s;
+}
+
+.back:hover {
+    background:rgba(255,255,255,.15);
+    transform:translateX(-4px);
+}
+
+.hero-main {
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:30px;
+}
+
+.hero-text {
+    max-width:760px;
+}
+
+.eyebrow {
+    display:inline-block;
+    color:var(--gold);
+    font-size:12px;
+    font-weight:800;
+    letter-spacing:2px;
+    margin-bottom:15px;
+}
+
+.hero h1 {
+    font-size:clamp(30px,5vw,55px);
+    line-height:1.2;
+    font-weight:900;
+    margin-bottom:18px;
+    letter-spacing:-1px;
+}
+
+.hero h1 span {
+    color:var(--gold);
+}
+
+.hero-desc {
+    color:#d3e5dc;
+    font-size:15px;
+    line-height:1.9;
+    max-width:680px;
+}
+
+.hero-symbol {
+    width:190px;
+    height:190px;
+    flex-shrink:0;
+    border:1px solid rgba(229,189,84,.5);
+    border-radius:50%;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:100px;
+    color:var(--gold);
+    background:rgba(255,255,255,.04);
+    box-shadow:0 0 50px rgba(229,189,84,.1);
+    animation:float 4s ease-in-out infinite;
+}
+
+@keyframes float {
+    0%,100% {transform:translateY(0);}
+    50% {transform:translateY(-12px);}
+}
+
+/* MAIN */
+
+.container {
+    max-width:1250px;
+    margin:-22px auto 0;
+    padding:0 22px 50px;
+    position:relative;
+    z-index:2;
+}
+
+.section-title {
+    margin:35px 0 18px;
+}
+
+.section-title small {
+    color:#16845c;
+    font-size:11px;
+    font-weight:800;
+    letter-spacing:1.8px;
+}
+
+.section-title h2 {
+    color:var(--green-dark);
+    font-size:23px;
+    font-weight:900;
+    margin-top:5px;
+}
+
+.section-title p {
+    color:#74827b;
+    font-size:13px;
+    margin-top:6px;
+}
+
+/* ONLINE LEARNING */
+
+.online-card {
+    position:relative;
+    overflow:hidden;
+    background:linear-gradient(110deg,#fff,#f1f9f2);
+    border:1px solid #d9e8da;
+    border-radius:18px;
+    padding:28px 32px;
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:25px;
+    box-shadow:0 8px 25px rgba(15,65,43,.06);
+    transition:.3s;
+}
+
+.online-card:hover {
+    transform:translateY(-4px);
+    box-shadow:0 15px 35px rgba(15,65,43,.12);
+}
+
+.online-left {
+    display:flex;
+    align-items:center;
+    gap:22px;
+}
+
+.online-icon {
+    width:75px;
+    height:75px;
+    flex-shrink:0;
+    border-radius:20px;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    font-size:36px;
+    background:#e1f3e7;
+}
+
+.online-card h3 {
+    color:var(--green-dark);
+    font-size:20px;
+    margin-bottom:8px;
+}
+
+.online-card p {
+    font-size:13px;
+    line-height:1.8;
+    color:#64756b;
+}
+
+.online-btn {
+    display:inline-flex;
+    align-items:center;
+    justify-content:center;
+    gap:10px;
+    background:linear-gradient(120deg,#0d6547,#16885c);
+    color:white;
+    padding:15px 23px;
+    border-radius:12px;
+    font-size:14px;
+    font-weight:800;
+    white-space:nowrap;
+    box-shadow:0 5px 15px rgba(16,91,67,.2);
+    transition:.3s;
+}
+
+.online-btn:hover {
+    background:#093c2c;
+    transform:translateY(-3px);
+}
+
+/* STATISTICS */
+
+.stats {
+    display:grid;
+    grid-template-columns:repeat(3,1fr);
+    gap:15px;
+    margin-top:22px;
+}
+
+.stat {
+    background:white;
+    border:1px solid #e3ebe4;
+    padding:20px;
+    border-radius:15px;
+    display:flex;
+    align-items:center;
+    gap:15px;
+}
+
+.stat-icon {
+    width:48px;
+    height:48px;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    border-radius:13px;
+    background:#eaf4eb;
+    font-size:24px;
+}
+
+.stat strong {
+    display:block;
+    color:var(--green-dark);
+    font-size:15px;
+}
+
+.stat small {
+    color:#849087;
+    font-size:11px;
+}
+
+/* LESSON GRID */
+
+.lesson-grid {
+    display:grid;
+    grid-template-columns:repeat(2,1fr);
+    gap:17px;
+}
+
+.lesson-card {
+    background:white;
+    border:1px solid #e2eae3;
+    border-radius:16px;
+    padding:23px;
+    display:flex;
+    align-items:flex-start;
+    gap:17px;
+    cursor:pointer;
+    transition:.3s;
+    text-align:left;
+    width:100%;
+    color:inherit;
+}
+
+.lesson-card:hover {
+    transform:translateY(-5px);
+    border-color:#91c6a3;
+    box-shadow:0 12px 25px rgba(14,76,48,.09);
+}
+
+.lesson-icon {
+    width:55px;
+    height:55px;
+    flex-shrink:0;
+    display:flex;
+    justify-content:center;
+    align-items:center;
+    font-size:27px;
+    border-radius:15px;
+}
+
+.c1 {background:#e1f3e7;}
+.c2 {background:#e4efff;}
+.c3 {background:#fff1d7;}
+.c4 {background:#f6e8ff;}
+
+.lesson-info {
+    flex:1;
+}
+
+.lesson-info small {
+    font-size:10px;
+    color:#16845c;
+    font-weight:800;
+    letter-spacing:1px;
+}
+
+.lesson-info h3 {
+    font-size:16px;
+    color:#173d2d;
+    margin:6px 0;
+}
+
+.lesson-info p {
+    color:#78847c;
+    font-size:12px;
+    line-height:1.7;
+}
+
+.lesson-arrow {
+    color:#16845c;
+    font-size:22px;
+    align-self:center;
+}
+
+/* CONTENT */
+
+#lesson-content {
+    display:none;
+    margin-top:25px;
+    padding:30px;
+    background:white;
+    border-radius:18px;
+    border:1px solid #dfe9df;
+    box-shadow:0 8px 25px rgba(0,0,0,.05);
+    animation:appear .35s ease;
+}
+
+@keyframes appear {
+    from {opacity:0;transform:translateY(10px);}
+    to {opacity:1;transform:translateY(0);}
+}
+
+.content-header {
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    gap:15px;
+    border-bottom:1px solid #e8eee8;
+    padding-bottom:18px;
+    margin-bottom:22px;
+}
+
+.content-header h2 {
+    color:var(--green-dark);
+    font-size:22px;
+}
+
+.close-btn {
+    border:none;
+    background:#edf4ee;
+    color:#155d40;
+    border-radius:9px;
+    padding:10px 15px;
+    cursor:pointer;
+    font-weight:700;
+}
+
+.content-body {
+    font-size:14px;
+    line-height:1.9;
+    color:#43564a;
+}
+
+.content-body h3 {
+    color:#116044;
+    font-size:17px;
+    margin:20px 0 8px;
+}
+
+.content-body p {
+    margin-bottom:12px;
+}
+
+.content-body ul {
+    padding-left:23px;
+    margin-bottom:15px;
+}
+
+.content-body li {
+    margin-bottom:8px;
+}
+
+.info-box {
+    padding:17px 20px;
+    background:#edf7ef;
+    border-left:4px solid #16845c;
+    border-radius:8px;
+    margin:18px 0;
+}
+
+/* QUIZ */
+
+.quiz-question {
+    padding:17px 0;
+    border-bottom:1px solid #edf0ed;
+}
+
+.quiz-question strong {
+    display:block;
+    margin-bottom:12px;
+    color:#244b38;
+}
+
+.quiz-question label {
+    display:block;
+    padding:9px 12px;
+    border:1px solid #e4eae4;
+    border-radius:8px;
+    margin:7px 0;
+    cursor:pointer;
+    transition:.2s;
+}
+
+.quiz-question label:hover {
+    background:#edf7ef;
+    border-color:#a6d2b0;
+}
+
+.quiz-question input {
+    margin-right:8px;
+    accent-color:#16845c;
+}
+
+.submit-btn {
+    background:#126345;
+    color:white;
+    border:0;
+    padding:13px 24px;
+    border-radius:9px;
+    margin-top:20px;
+    font-weight:800;
+    cursor:pointer;
+}
+
+#result {
+    margin-top:18px;
+    padding:16px;
+    border-radius:10px;
+    background:#edf7ef;
+    color:#145d3e;
+    font-weight:800;
+    display:none;
+}
+
+/* FOOTER */
+
+footer {
+    background:#082e25;
+    color:#c9d9d0;
+    text-align:center;
+    padding:25px 15px;
+    font-size:12px;
+    line-height:2;
+}
+
+footer strong {
+    color:var(--gold);
+}
+
+@media(max-width:700px) {
+    .topbar {
+        font-size:10px;
+        gap:10px;
+    }
+
+    .hero {
+        padding:25px 20px 45px;
+    }
+
+    .hero-main {
+        gap:10px;
+    }
+
+    .hero-symbol {
+        width:90px;
+        height:90px;
+        font-size:48px;
+    }
+
+    .hero-desc {
+        font-size:12px;
+    }
+
+    .hero h1 {
+        font-size:30px;
+    }
+
+    .container {
+        padding:0 14px 35px;
+    }
+
+    .online-card {
+        flex-direction:column;
+        align-items:stretch;
+        padding:22px;
+    }
+
+    .online-left {
+        align-items:flex-start;
+    }
+
+    .online-icon {
+        width:55px;
+        height:55px;
+        font-size:27px;
+    }
+
+    .online-card h3 {
+        font-size:16px;
+    }
+
+    .online-btn {
+        width:100%;
+    }
+
+    .stats {
+        grid-template-columns:1fr;
+    }
+
+    .lesson-grid {
+        grid-template-columns:1fr;
+    }
+
+    .lesson-card {
+        padding:17px;
+    }
+
+    #lesson-content {
+        padding:20px 16px;
+    }
+
+    .content-header h2 {
+        font-size:17px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="topbar">
+    <span>PHÒNG HỒ CHÍ MINH</span>
+    <span>HỌC TẬP SUỐT ĐỜI – LÀM CHỦ CÔNG NGHỆ SỐ</span>
+</div>
+
+<header class="hero">
+    <div class="hero-content">
+
+        <a href="index.html" class="back">
+            ← Quay lại trang chủ
+        </a>
+
+        <div class="hero-main">
+
+            <div class="hero-text">
+                <div class="eyebrow">CHUYỂN ĐỔI SỐ • TRI THỨC • HÀNH ĐỘNG</div>
+
+                <h1>
+                    BÌNH DÂN<br>
+                    HỌC VỤ <span>SỐ</span>
+                </h1>
+
+                <p class="hero-desc">
+                    Phổ cập tri thức số, nâng cao năng lực ứng dụng công nghệ,
+                    xây dựng tư duy số và kỹ năng số cho mỗi cán bộ, chiến sĩ.
+                    Học tập chủ động – Thực hành thiết thực – Làm chủ công nghệ.
+                </p>
+            </div>
+
+            <div class="hero-symbol">✦</div>
+
+        </div>
+    </div>
+</header>
+
+<main class="container">
+
+    <div class="section-title">
+        <small>ĐIỂM ĐẾN HỌC TẬP</small>
+        <h2>Học tập trực tuyến</h2>
+        <p>Truy cập nền tảng Bình dân học vụ số chính thức để tham gia học tập.</p>
+    </div>
+
+    <a href="https://www.binhdanhocvuso.gov.vn/"
+       target="_blank"
+       rel="noopener noreferrer"
+       class="online-card">
+
+        <div class="online-left">
+            <div class="online-icon">🌐</div>
+
+            <div>
+                <h3>Nền tảng Bình dân học vụ số</h3>
+                <p>
+                    Học tập trực tuyến trên nền tảng chính thức.
+                    Khám phá kiến thức, tham gia các khóa học và nâng cao
+                    kỹ năng số của bản thân.
+                </p>
+            </div>
+        </div>
+
+        <div class="online-btn">
+            TRUY CẬP HỌC TẬP ↗
+        </div>
+
+    </a>
+
+    <div class="stats">
+
+        <div class="stat">
+            <div class="stat-icon">📚</div>
+            <div>
+                <strong>Học tập chủ động</strong>
+                <small>Tiếp cận tri thức mới</small>
+            </div>
+        </div>
+
+        <div class="stat">
+            <div class="stat-icon">💻</div>
+            <div>
+                <strong>Thành thạo kỹ năng số</strong>
+                <small>Ứng dụng công nghệ thực tế</small>
+            </div>
+        </div>
+
+        <div class="stat">
+            <div class="stat-icon">🎯</div>
+            <div>
+                <strong>Chuyển đổi số</strong>
+                <small>Học đi đôi với hành</small>
+            </div>
+        </div>
+
+    </div>
+
+    <div class="section-title">
+        <small>KHÔNG GIAN TRI THỨC</small>
+        <h2>Nội dung học tập và rèn luyện</h2>
+        <p>Lựa chọn từng chuyên đề để tìm hiểu và củng cố kiến thức.</p>
+    </div>
+
+    <div class="lesson-grid">
+
+        <button class="lesson-card" onclick="showLesson(1)">
+            <div class="lesson-icon c1">🧠</div>
+            <div class="lesson-info">
+                <small>CHUYÊN ĐỀ 01</small>
+                <h3>Nhận thức về chuyển đổi số</h3>
+                <p>Hiểu về công nghệ số, dữ liệu số và vai trò của chuyển đổi số trong cuộc sống, công tác.</p>
+            </div>
+            <span class="lesson-arrow">›</span>
+        </button>
+
+        <button class="lesson-card" onclick="showLesson(2)">
+            <div class="lesson-icon c2">🔐</div>
+            <div class="lesson-info">
+                <small>CHUYÊN ĐỀ 02</small>
+                <h3>An toàn và bảo mật trên không gian mạng</h3>
+                <p>Nhận diện lừa đảo, bảo vệ thông tin cá nhân và sử dụng Internet an toàn.</p>
+            </div>
+            <span class="lesson-arrow">›</span>
+        </button>
+
+        <button class="lesson-card" onclick="showLesson(3)">
+            <div class="lesson-icon c3">📱</div>
+            <div class="lesson-info">
+                <small>CHUYÊN ĐỀ 03</small>
+                <h3>Kỹ năng ứng dụng công nghệ số</h3>
+                <p>Sử dụng thiết bị thông minh, dịch vụ trực tuyến và công cụ số trong công việc.</p>
+            </div>
+            <span class="lesson-arrow">›</span>
+        </button>
+
+        <button class="lesson-card" onclick="showLesson(4)">
+            <div class="lesson-icon c4">🤖</div>
+            <div class="lesson-info">
+                <small>CHUYÊN ĐỀ 04</small>
+                <h3>Trí tuệ nhân tạo và công nghệ mới</h3>
+                <p>Tìm hiểu AI, trợ lý số và cách khai thác công nghệ có trách nhiệm.</p>
+            </div>
+            <span class="lesson-arrow">›</span>
+        </button>
+
+        <button class="lesson-card" onclick="showLesson(5)">
+            <div class="lesson-icon c1">📂</div>
+            <div class="lesson-info">
+                <small>CHUYÊN ĐỀ 05</small>
+                <h3>Khai thác dữ liệu và tài nguyên số</h3>
+                <p>Tìm kiếm, lưu trữ, chia sẻ và quản lý thông tin khoa học, hiệu quả.</p>
+            </div>
+            <span class="lesson-arrow">›</span>
+        </button>
+
+        <button class="lesson-card" onclick="showLesson(6)">
+            <div class="lesson-icon c2">🏅</div>
+            <div class="lesson-info">
+                <small>CHUYÊN ĐỀ 06</small>
+                <h3>Vận dụng vào thực tiễn đơn vị</h3>
+                <p>Đưa kiến thức số vào học tập, công tác và xây dựng đơn vị chính quy.</p>
+            </div>
+            <span class="lesson-arrow">›</span>
+        </button>
+
+    </div>
+
+    <div id="lesson-content">
+        <div class="content-header">
+            <h2 id="content-title"></h2>
+            <button class="close-btn" onclick="closeLesson()">✕ Đóng</button>
+        </div>
+        <div class="content-body" id="content-body"></div>
+    </div>
+
+    <div class="section-title">
+        <small>KIỂM TRA VÀ CỦNG CỐ</small>
+        <h2>Thử sức với kiến thức số</h2>
+        <p>10 câu hỏi trắc nghiệm giúp tự đánh giá nhận thức và kỹ năng số.</p>
+    </div>
+
+    <button class="lesson-card" onclick="showLesson(7)">
+        <div class="lesson-icon c3">📝</div>
+        <div class="lesson-info">
+            <small>BÀI KIỂM TRA</small>
+            <h3>Trắc nghiệm kiến thức Bình dân học vụ số</h3>
+            <p>Thực hiện bài kiểm tra, xem kết quả và củng cố kiến thức đã học.</p>
+        </div>
+        <span class="lesson-arrow">›</span>
+    </button>
+
+</main>
+
+<footer>
+    <strong>BÌNH DÂN HỌC VỤ SỐ</strong><br>
+    Học tập chủ động – Nâng cao tri thức – Làm chủ công nghệ<br>
+    PHÒNG HỒ CHÍ MINH
+</footer>
+
+<script>
+
+const lessons = {
+
+1: {
+title:"01. NHẬN THỨC VỀ CHUYỂN ĐỔI SỐ",
+html:`
+<h3>1. Chuyển đổi số là gì?</h3>
+<p>Chuyển đổi số là quá trình ứng dụng công nghệ số và dữ liệu số để thay đổi phương thức hoạt động, nâng cao hiệu quả công việc, chất lượng phục vụ và năng lực quản lý.</p>
+
+<h3>2. Những thành tố cơ bản</h3>
+<ul>
+<li><b>Chính phủ số:</b> Ứng dụng công nghệ trong hoạt động quản lý, điều hành của cơ quan nhà nước.</li>
+<li><b>Kinh tế số:</b> Hoạt động kinh tế dựa trên nền tảng công nghệ và dữ liệu số.</li>
+<li><b>Xã hội số:</b> Người dân sử dụng công nghệ để học tập, giao tiếp và giải quyết công việc.</li>
+<li><b>Công dân số:</b> Có kiến thức, kỹ năng và trách nhiệm khi tham gia môi trường số.</li>
+</ul>
+
+<h3>3. Ý nghĩa đối với quân nhân</h3>
+<p>Giúp cán bộ, chiến sĩ nâng cao khả năng tiếp cận tri thức, sử dụng thành thạo công cụ công nghệ được phép, đổi mới phương pháp học tập và nâng cao hiệu quả thực hiện nhiệm vụ.</p>
+
+<div class="info-box"><b>Thông điệp:</b> Chuyển đổi số bắt đầu từ nhận thức đúng, hành động thiết thực và thói quen sử dụng công nghệ hiệu quả.</div>
+`
+},
+
+2: {
+title:"02. AN TOÀN VÀ BẢO MẬT TRÊN KHÔNG GIAN MẠNG",
+html:`
+<h3>1. Nhận diện nguy cơ</h3>
+<ul>
+<li>Tin nhắn giả mạo cơ quan, tổ chức để chiếm đoạt tài khoản.</li>
+<li>Đường dẫn lạ yêu cầu cung cấp mật khẩu hoặc mã OTP.</li>
+<li>Phần mềm không rõ nguồn gốc chứa mã độc.</li>
+<li>Thông tin sai sự thật, xuyên tạc được lan truyền trên mạng.</li>
+</ul>
+
+<h3>2. Nguyên tắc bảo vệ tài khoản</h3>
+<ul>
+<li>Sử dụng mật khẩu mạnh, không dùng chung mật khẩu cho nhiều tài khoản.</li>
+<li>Bật xác thực nhiều lớp khi có thể.</li>
+<li>Không cung cấp mã OTP cho bất kỳ ai.</li>
+<li>Thường xuyên cập nhật hệ điều hành và phần mềm.</li>
+</ul>
+
+<h3>3. Trách nhiệm khi sử dụng mạng xã hội</h3>
+<p>Kiểm chứng nguồn tin trước khi chia sẻ; ứng xử văn minh; không đăng tải thông tin nội bộ, tài liệu, hình ảnh hoặc dữ liệu thuộc phạm vi bảo vệ theo quy định.</p>
+
+<div class="info-box"><b>Ghi nhớ:</b> Không nhấp vào liên kết đáng ngờ, không chia sẻ dữ liệu nhạy cảm và báo cáo sự cố cho người có trách nhiệm.</div>
+`
+},
+
+3: {
+title:"03. KỸ NĂNG ỨNG DỤNG CÔNG NGHỆ SỐ",
+html:`
+<h3>1. Sử dụng thiết bị thông minh</h3>
+<ul>
+<li>Biết cài đặt và quản lý ứng dụng từ nguồn đáng tin cậy.</li>
+<li>Sử dụng camera, quét mã QR và các tiện ích phù hợp.</li>
+<li>Thiết lập bảo mật, khóa màn hình và sao lưu dữ liệu.</li>
+</ul>
+
+<h3>2. Kỹ năng làm việc trực tuyến</h3>
+<ul>
+<li>Sử dụng thư điện tử để trao đổi công việc.</li>
+<li>Soạn thảo và quản lý văn bản điện tử.</li>
+<li>Tạo, lưu trữ và chia sẻ tài liệu đúng quyền truy cập.</li>
+<li>Sử dụng công cụ họp trực tuyến khi được phép.</li>
+</ul>
+
+<h3>3. Khai thác dịch vụ số</h3>
+<p>Tìm hiểu cách sử dụng dịch vụ công trực tuyến, thanh toán điện tử, nền tảng học tập và các ứng dụng phục vụ đời sống.</p>
+
+<div class="info-box"><b>Thực hành:</b> Hãy thử tìm kiếm một thông tin hữu ích, kiểm tra nguồn cung cấp và lưu lại tài liệu theo cách khoa học.</div>
+`
+},
+
+4: {
+title:"04. TRÍ TUỆ NHÂN TẠO VÀ CÔNG NGHỆ MỚI",
+html:`
+<h3>1. Trí tuệ nhân tạo (AI)</h3>
+<p>AI là công nghệ cho phép máy tính thực hiện một số nhiệm vụ thường đòi hỏi trí tuệ con người như phân tích dữ liệu, nhận diện hình ảnh, xử lý ngôn ngữ và hỗ trợ sáng tạo nội dung.</p>
+
+<h3>2. Ứng dụng của AI</h3>
+<ul>
+<li>Hỗ trợ tìm kiếm và tổng hợp kiến thức.</li>
+<li>Hỗ trợ học ngoại ngữ và luyện tập kỹ năng.</li>
+<li>Hỗ trợ soạn thảo, xây dựng kế hoạch và trình bày ý tưởng.</li>
+<li>Phân tích dữ liệu phục vụ những công việc phù hợp.</li>
+</ul>
+
+<h3>3. Sử dụng AI có trách nhiệm</h3>
+<ul>
+<li>Kiểm tra lại thông tin do AI cung cấp.</li>
+<li>Không coi kết quả AI là thông tin luôn chính xác.</li>
+<li>Không nhập dữ liệu mật, thông tin cá nhân hoặc tài liệu nội bộ vào công cụ AI không được phép.</li>
+<li>Tuân thủ quy định của cơ quan, đơn vị.</li>
+</ul>
+
+<div class="info-box"><b>Ghi nhớ:</b> AI là công cụ hỗ trợ con người, không thay thế tư duy, trách nhiệm và khả năng kiểm chứng của người sử dụng.</div>
+`
+},
+
+5: {
+title:"05. KHAI THÁC DỮ LIỆU VÀ TÀI NGUYÊN SỐ",
+html:`
+<h3>1. Tìm kiếm thông tin hiệu quả</h3>
+<ul>
+<li>Xác định rõ nội dung cần tìm.</li>
+<li>Sử dụng từ khóa cụ thể, phù hợp.</li>
+<li>Ưu tiên nguồn chính thống và có độ tin cậy.</li>
+<li>Đối chiếu thông tin từ nhiều nguồn.</li>
+</ul>
+
+<h3>2. Quản lý dữ liệu</h3>
+<ul>
+<li>Sắp xếp tài liệu theo thư mục và tên tệp thống nhất.</li>
+<li>Phân loại tài liệu theo mục đích sử dụng.</li>
+<li>Sao lưu dữ liệu quan trọng theo quy định.</li>
+<li>Kiểm soát quyền truy cập và chia sẻ tài liệu.</li>
+</ul>
+
+<h3>3. Khai thác tài nguyên học tập</h3>
+<p>Tận dụng sách điện tử, thư viện số, khóa học trực tuyến, video hướng dẫn và các nền tảng học tập đáng tin cậy để tự nâng cao trình độ.</p>
+
+<div class="info-box"><b>Thực hành:</b> Xây dựng thói quen lưu trữ tài liệu khoa học, dễ tìm kiếm và bảo đảm an toàn thông tin.</div>
+`
+},
+
+6: {
+title:"06. VẬN DỤNG VÀO THỰC TIỄN ĐƠN VỊ",
+html:`
+<h3>1. Trong học tập và công tác</h3>
+<ul>
+<li>Chủ động học tập trên nền tảng số được phép.</li>
+<li>Ứng dụng công cụ số để nâng cao chất lượng nghiên cứu, học tập.</li>
+<li>Sử dụng văn bản điện tử và tài liệu số theo quy định.</li>
+<li>Từng bước hình thành thói quen làm việc khoa học.</li>
+</ul>
+
+<h3>2. Trong sinh hoạt hằng ngày</h3>
+<ul>
+<li>Sử dụng công nghệ để tra cứu kiến thức và học tập.</li>
+<li>Rèn luyện kỹ năng nhận biết thông tin sai lệch.</li>
+<li>Hỗ trợ đồng đội tiếp cận và sử dụng công nghệ.</li>
+<li>Thực hiện văn hóa ứng xử văn minh trên không gian mạng.</li>
+</ul>
+
+<h3>3. Xây dựng môi trường học tập số</h3>
+<p>Mỗi cán bộ, chiến sĩ phát huy tinh thần tự học, tự rèn luyện, tích cực chia sẻ kiến thức hữu ích, góp phần xây dựng đơn vị có môi trường học tập tiến bộ và hiện đại.</p>
+
+<div class="info-box"><b>Phương châm:</b> Mỗi ngày học thêm một kỹ năng số, mỗi tuần thực hành một ứng dụng mới, luôn đặt an toàn thông tin và kỷ luật lên hàng đầu.</div>
+`
+}
+
+};
+
+const questions = [
+["Chuyển đổi số là quá trình gì?",["Ứng dụng công nghệ và dữ liệu số để đổi mới hoạt động","Chỉ thay đổi máy tính","Chỉ sử dụng mạng xã hội"],0],
+["Mật khẩu an toàn nên có đặc điểm nào?",["Dùng ngày sinh","Kết hợp chữ, số và ký tự đặc biệt","Dùng một mật khẩu cho tất cả tài khoản"],1],
+["Khi nhận được đường dẫn lạ yêu cầu nhập OTP, cần làm gì?",["Nhập ngay","Gửi cho bạn bè","Không truy cập và không cung cấp OTP"],2],
+["Nguồn thông tin nào nên được ưu tiên?",["Nguồn chính thống, đáng tin cậy","Tin nhắn không rõ nguồn","Bài đăng không có căn cứ"],0],
+["AI có thể hỗ trợ công việc nào?",["Tổng hợp kiến thức","Hỗ trợ soạn thảo","Cả hai phương án trên"],2],
+["Khi sử dụng công cụ AI cần chú ý điều gì?",["Cung cấp mọi tài liệu","Kiểm chứng kết quả và bảo vệ dữ liệu","Tin mọi câu trả lời"],1],
+["Việc sao lưu dữ liệu nhằm mục đích gì?",["Phòng ngừa mất dữ liệu","Làm máy tính chậm hơn","Xóa dữ liệu cũ"],0],
+["Khi chia sẻ tài liệu số cần chú ý điều gì?",["Chia sẻ công khai tất cả","Không cần phân quyền","Kiểm soát quyền truy cập và nội dung"],2],
+["Cách xử lý thông tin chưa được kiểm chứng là gì?",["Chia sẻ ngay","Kiểm tra nguồn trước khi chia sẻ","Tin theo số lượt thích"],1],
+["Mục tiêu của việc học tập kỹ năng số là gì?",["Nâng cao năng lực và hiệu quả công việc","Chỉ để biết sử dụng điện thoại","Thay thế hoàn toàn con người bằng máy móc"],0]
+];
+
+function showLesson(num) {
+    const panel=document.getElementById("lesson-content");
+    const title=document.getElementById("content-title");
+    const body=document.getElementById("content-body");
+
+    if(num===7) {
+        title.innerText="KIỂM TRA KIẾN THỨC SỐ";
+        body.innerHTML=renderQuiz();
+    } else {
+        title.innerText=lessons[num].title;
+        body.innerHTML=lessons[num].html;
+    }
+
+    panel.style.display="block";
+    panel.scrollIntoView({behavior:"smooth",block:"start"});
+}
+
+function closeLesson() {
+    document.getElementById("lesson-content").style.display="none";
+}
+
+function renderQuiz() {
+    let html='<form id="quizForm">';
+
+    questions.forEach((q,i)=>{
+        html+=`<div class="quiz-question">
+        <strong>Câu ${i+1}: ${q[0]}</strong>`;
+
+        q[1].forEach((option,j)=>{
+            html+=`<label>
+            <input type="radio" name="q${i}" value="${j}">
+            ${String.fromCharCode(65+j)}. ${option}
+            </label>`;
+        });
+
+        html+='</div>';
+    });
+
+    html+=`<button type="button" class="submit-btn" onclick="checkQuiz()">NỘP BÀI KIỂM TRA</button>
+    <div id="result"></div></form>`;
+
+    return html;
+}
+
+function checkQuiz() {
+    let score=0;
+    let unanswered=0;
+
+    questions.forEach((q,i)=>{
+        const selected=document.querySelector('input[name="q'+i+'"]:checked');
+
+        if(!selected) {
+            unanswered++;
+        } else if(Number(selected.value)===q[2]) {
+            score++;
+        }
+    });
+
+    const result=document.getElementById("result");
+    result.style.display="block";
+
+    if(unanswered>0) {
+        result.innerHTML=`Bạn còn ${unanswered} câu chưa trả lời. Hãy hoàn thành bài kiểm tra!`;
+        return;
+    }
+
+    const percent=score*10;
+
+    let message="";
+    if(score>=9) message="Xuất sắc! Bạn đã nắm vững kiến thức cơ bản.";
+    else if(score>=7) message="Tốt! Hãy tiếp tục phát huy và rèn luyện.";
+    else if(score>=5) message="Đạt yêu cầu. Bạn nên ôn tập thêm.";
+    else message="Cần cố gắng hơn. Hãy xem lại các chuyên đề.";
+
+    result.innerHTML=`
+    <div style="font-size:25px;margin-bottom:8px">
+    ${score}/10 điểm
+    </div>
+    <div>${percent}% câu trả lời chính xác</div>
+    <div style="margin-top:8px">${message}</div>
+    `;
+
+    result.scrollIntoView({behavior:"smooth",block:"nearest"});
+}
+
+</script>
+
+</body>
+</html>

@@ -1,0 +1,290 @@
+﻿
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#073b78">
+
+<title>Sách và báo - Phòng Hồ Chí Minh</title>
+
+<style>
+:root {
+    --navy: #073b78;
+    --blue: #0755a5;
+    --gold: #e5bd54;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: "Segoe UI", Arial, sans-serif;
+    min-height: 100vh;
+    background:
+        linear-gradient(rgba(3,28,48,0.58), rgba(3,28,48,0.68)),
+        url("background.jpg") center center / cover fixed no-repeat;
+    color: white;
+}
+
+/* HEADER */
+header {
+    width: 100%;
+    min-height: 75px;
+    padding: 12px 5%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    background: rgba(255,255,255,0.94);
+    border-bottom: 3px solid var(--gold);
+    box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+}
+
+.logo {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    color: var(--navy);
+    font-weight: 800;
+    font-size: 20px;
+}
+
+.logo-icon {
+    width: 45px;
+    height: 45px;
+    border-radius: 50%;
+    background: var(--navy);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    font-size: 25px;
+}
+
+.back-btn {
+    text-decoration: none;
+    background: var(--navy);
+    color: white;
+    padding: 11px 20px;
+    border-radius: 25px;
+    font-weight: 700;
+    transition: 0.3s;
+}
+
+.back-btn:hover {
+    background: var(--blue);
+    transform: translateY(-2px);
+}
+
+/* MAIN */
+main {
+    min-height: calc(100vh - 140px);
+    padding: 45px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+}
+
+.heading {
+    margin-bottom: 45px;
+}
+
+.heading h1 {
+    font-size: clamp(26px, 4vw, 38px);
+    text-transform: uppercase;
+    margin-bottom: 12px;
+    text-shadow: 0 3px 8px rgba(0,0,0,0.7);
+}
+
+.heading p {
+    color: #f4e8c5;
+    font-size: 16px;
+    line-height: 1.7;
+}
+
+/* CIRCLE MENU */
+.menu-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    gap: 70px;
+    flex-wrap: wrap;
+}
+
+.menu-item {
+    width: 230px;
+    height: 230px;
+    border-radius: 50%;
+    background: linear-gradient(145deg, #0755a5, #073b78);
+    border: 6px solid var(--gold);
+    box-shadow:
+        0 0 0 8px rgba(255,255,255,0.12),
+        0 12px 30px rgba(0,0,0,0.4);
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-decoration: none;
+    color: white;
+    padding: 20px;
+    transition: 0.35s;
+}
+
+.menu-item:hover {
+    transform: translateY(-10px) scale(1.05);
+    background: linear-gradient(145deg, #1473c5, #0755a5);
+    box-shadow:
+        0 0 0 10px rgba(229,189,84,0.2),
+        0 18px 35px rgba(0,0,0,0.5);
+}
+
+.menu-icon {
+    font-size: 65px;
+    margin-bottom: 12px;
+}
+
+.menu-item h2 {
+    font-size: 21px;
+    text-transform: uppercase;
+    margin-bottom: 8px;
+}
+
+.menu-item p {
+    font-size: 12px;
+    color: #f6df9e;
+}
+
+/* DESCRIPTION */
+.description {
+    max-width: 750px;
+    margin-top: 55px;
+    padding: 22px 28px;
+    background: rgba(255,255,255,0.13);
+    border: 1px solid rgba(255,255,255,0.3);
+    border-radius: 16px;
+    backdrop-filter: blur(6px);
+    line-height: 1.8;
+    font-size: 15px;
+}
+
+/* FOOTER */
+footer {
+    text-align: center;
+    padding: 17px 10px;
+    background: rgba(3,25,48,0.85);
+    border-top: 2px solid var(--gold);
+    color: #eee;
+    font-size: 13px;
+}
+
+/* MOBILE */
+@media (max-width: 600px) {
+    header {
+        padding: 10px 4%;
+    }
+
+    .logo {
+        font-size: 15px;
+    }
+
+    .logo-icon {
+        width: 38px;
+        height: 38px;
+        font-size: 21px;
+    }
+
+    .back-btn {
+        padding: 9px 13px;
+        font-size: 13px;
+    }
+
+    .heading {
+        margin-bottom: 35px;
+    }
+
+    .menu-container {
+        gap: 35px;
+    }
+
+    .menu-item {
+        width: 190px;
+        height: 190px;
+    }
+
+    .menu-icon {
+        font-size: 52px;
+    }
+
+    .menu-item h2 {
+        font-size: 18px;
+    }
+
+    .description {
+        font-size: 14px;
+        margin-top: 40px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="logo">
+        <div class="logo-icon">⚓</div>
+        <div>PHÒNG HỒ CHÍ MINH</div>
+    </div>
+
+    <a href="index.html" class="back-btn">← Quay lại</a>
+</header>
+
+<main>
+
+    <div class="heading">
+        <h1>THƯ VIỆN SÁCH VÀ BÁO</h1>
+        <p>Tri thức là nền tảng – Văn hóa đọc là động lực phát triển</p>
+    </div>
+
+    <div class="menu-container">
+
+        <!-- MỤC SÁCH -->
+        <a href="sach.html" class="menu-item">
+            <div class="menu-icon">📚</div>
+            <h2>SÁCH</h2>
+            <p>Kho sách điện tử</p>
+        </a>
+
+        <!-- MỤC BÁO -->
+        <a href="baodientu.html" class="menu-item">
+            <div class="menu-icon">📰</div>
+            <h2>BÁO</h2>
+            <p>Báo chí và tin tức</p>
+        </a>
+
+    </div>
+
+    <div class="description">
+        <p>
+            Không gian đọc sách và báo điện tử phục vụ nhu cầu học tập,
+            nghiên cứu, cập nhật thông tin và nâng cao kiến thức cho cán bộ,
+            chiến sĩ. Góp phần xây dựng môi trường văn hóa lành mạnh,
+            thúc đẩy phong trào đọc sách và học tập thường xuyên trong đơn vị.
+        </p>
+        <p style="margin-top:12px; color:#f6df9e; font-weight:700;">
+            Đọc để hiểu biết hơn – Học tập để trưởng thành – Rèn luyện để tiến bộ.
+        </p>
+    </div>
+
+</main>
+
+<footer>
+    PHÒNG HỒ CHÍ MINH | THƯ VIỆN HỌC TẬP ĐIỆN TỬ
+</footer>
+
+</body>
+</html>

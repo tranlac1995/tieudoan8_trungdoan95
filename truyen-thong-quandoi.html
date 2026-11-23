@@ -1,0 +1,199 @@
+﻿
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Truyền thống Quân đội nhân dân Việt Nam</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    min-height: 100vh;
+    padding: 20px;
+
+    /* Ảnh nền cùng thư mục với file HTML */
+    background-image: url("background.jpg");
+    background-size: cover;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+/* TIÊU ĐỀ */
+header {
+    background: rgba(255,255,255,0.82);
+    padding: 18px;
+    text-align: center;
+    border-radius: 0 0 18px 18px;
+    box-shadow: 0 3px 10px rgba(0,0,0,0.15);
+}
+
+header h1 {
+    color: #244b3b;
+    font-size: 1.7rem;
+}
+
+/* KHU VỰC NỘI DUNG */
+section {
+    max-width: 950px;
+    margin: 25px auto;
+}
+
+/* NÚT QUAY LẠI */
+button {
+    background: #294d3d;
+    color: #fff;
+    border: none;
+    border-radius: 8px;
+    padding: 10px 16px;
+    cursor: pointer;
+    margin-bottom: 20px;
+    font-size: 0.9rem;
+}
+
+button:hover {
+    background: #3d6954;
+}
+
+/* BỐ TRÍ 3 HÌNH TRÒN */
+.grid-main {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 45px;
+    margin-top: 35px;
+}
+
+/* HÌNH TRÒN */
+.square-main {
+    width: 185px;
+    height: 185px;
+    border-radius: 50%;
+
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+
+    padding: 18px;
+    text-align: center;
+    cursor: pointer;
+
+    background: rgba(245,248,244,0.92);
+    border: 3px solid rgba(255,255,255,0.85);
+
+    box-shadow: 0 5px 15px rgba(0,0,0,0.20);
+
+    transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.square-main:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 9px 20px rgba(0,0,0,0.25);
+}
+
+/* MÀU RIÊNG CHO TỪNG HÌNH TRÒN */
+.square-main:nth-child(1) {
+    background: rgba(224,237,226,0.95);
+}
+
+.square-main:nth-child(2) {
+    background: rgba(224,234,242,0.95);
+}
+
+.square-main:nth-child(3) {
+    background: rgba(239,232,215,0.95);
+}
+
+/* BIỂU TƯỢNG */
+.square-main .icon {
+    font-size: 2.5rem;
+    margin-bottom: 12px;
+}
+
+/* CHỮ */
+.square-main p {
+    color: #263b32;
+    font-size: 1rem;
+    font-weight: bold;
+    line-height: 1.4;
+    text-shadow: none;
+}
+
+/* RESPONSIVE */
+@media (max-width: 650px) {
+    header h1 {
+        font-size: 1.3rem;
+    }
+
+    .grid-main {
+        gap: 20px;
+    }
+
+    .square-main {
+        width: 155px;
+        height: 155px;
+        padding: 12px;
+    }
+
+    .square-main .icon {
+        font-size: 2rem;
+        margin-bottom: 8px;
+    }
+
+    .square-main p {
+        font-size: 0.9rem;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>Truyền thống Quân đội nhân dân Việt Nam</h1>
+</header>
+
+<section>
+
+<a href="index.html">
+    <button>⏪ Quay lại</button>
+</a>
+
+<div class="grid-main">
+
+    <!-- Quá trình hình thành và phát triển -->
+    <div class="square-main"
+         onclick="location.href='hinhthanh-phattrienquandoi.html'">
+        <div class="icon">📜</div>
+        <p>Quá trình hình thành và phát triển</p>
+    </div>
+
+    <!-- Nhiệm vụ, chức năng -->
+    <div class="square-main"
+         onclick="location.href='nhiemvu-chucnangquandoi.html'">
+        <div class="icon">🎯</div>
+        <p>Nhiệm vụ, chức năng</p>
+    </div>
+
+    <!-- Lãnh đạo hiện nay -->
+    <div class="square-main"
+         onclick="location.href='lanhdaoquandoi.html'">
+        <div class="icon">⭐</div>
+        <p>Lãnh đạo hiện nay</p>
+    </div>
+
+</div>
+
+</section>
+
+</body>
+</html>

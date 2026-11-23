@@ -1,0 +1,201 @@
+﻿
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Truyền thống Sư đoàn 2</title>
+
+<style>
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+body {
+  font-family: Arial, sans-serif;
+  padding: 20px;
+  background-image: url("background.jpg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  background-attachment: fixed;
+  line-height: 1.6;
+}
+
+header {
+  background: rgba(255,255,255,0.88);
+  padding: 20px;
+  text-align: center;
+  border-radius: 0 0 18px 18px;
+  box-shadow: 0 3px 10px rgba(0,0,0,0.12);
+  border-bottom: 3px solid #9c7950;
+}
+
+header h1 {
+  color: #8b2929;
+  font-size: 1.7rem;
+}
+
+section {
+  max-width: 900px;
+  margin: 35px auto;
+}
+
+/* NÚT QUAY LẠI */
+.btn {
+  display: inline-block;
+  background: #315b43;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  padding: 10px 16px;
+  cursor: pointer;
+  margin-bottom: 20px;
+  font-size: 0.9rem;
+  text-decoration: none;
+  transition: background 0.2s;
+}
+
+.btn:hover {
+  background: #244632;
+}
+
+/* GRID HÌNH TRÒN */
+.grid-main {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 25px;
+  margin-top: 20px;
+  justify-items: center;
+  align-items: center;
+}
+
+.circle-main {
+  width: 190px;
+  height: 190px;
+  border-radius: 50%;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  padding: 18px;
+  cursor: pointer;
+  text-decoration: none;
+  color: #294b38;
+  border: 1px solid rgba(100,120,100,0.2);
+  box-shadow: 0 4px 12px rgba(0,0,0,0.10);
+  transition: transform 0.25s ease, box-shadow 0.25s ease;
+}
+
+.circle-main:nth-child(1) {
+  background: rgba(235,242,229,0.94);
+}
+
+.circle-main:nth-child(2) {
+  background: rgba(238,242,246,0.94);
+}
+
+.circle-main:nth-child(3) {
+  background: rgba(245,239,226,0.94);
+}
+
+.circle-main:hover {
+  transform: translateY(-5px);
+  box-shadow: 0 7px 16px rgba(0,0,0,0.15);
+}
+
+.circle-main .icon {
+  font-size: 2.7rem;
+  margin-bottom: 12px;
+}
+
+.circle-main p {
+  font-size: 1rem;
+  font-weight: bold;
+  line-height: 1.5;
+}
+
+/* RESPONSIVE */
+@media(max-width:800px) {
+  .grid-main {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 20px;
+  }
+
+  .circle-main {
+    width: 165px;
+    height: 165px;
+  }
+}
+
+@media(max-width:480px) {
+  body {
+    padding: 12px;
+  }
+
+  header h1 {
+    font-size: 1.4rem;
+  }
+
+  .grid-main {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+  }
+
+  .circle-main {
+    width: 145px;
+    height: 145px;
+    padding: 12px;
+  }
+
+  .circle-main .icon {
+    font-size: 2.2rem;
+    margin-bottom: 8px;
+  }
+
+  .circle-main p {
+    font-size: 0.88rem;
+  }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+  <h1>Truyền thống Sư đoàn 2</h1>
+</header>
+
+<section>
+
+<a href="index.html" class="btn">⏪ Quay lại</a>
+
+<div class="grid-main">
+
+  <!-- Quá trình hình thành và phát triển -->
+  <a class="circle-main" href="qn-hinhthanh-phattrien.html">
+    <div class="icon">📜</div>
+    <p>Quá trình hình thành<br>và phát triển</p>
+  </a>
+
+  <!-- Truyền thống tiêu biểu -->
+  <a class="circle-main" href="qn-chucnang-nhiemvu.html">
+    <div class="icon">🎯</div>
+    <p>Chức năng<br>nhiệm vụ</p>
+  </a>
+
+  <!-- Lãnh đạo hiện nay -->
+  <a class="circle-main" href="qn-lanhdao.html">
+    <div class="icon">⭐</div>
+    <p>Lãnh đạo Trung đoàn 126<br>hiện nay</p>
+  </a>
+
+</div>
+
+</section>
+
+</body>
+</html>

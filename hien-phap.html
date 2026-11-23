@@ -1,0 +1,848 @@
+﻿
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Pháp luật Nhà nước - Kỷ luật Quân đội</title>
+
+<style>
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+:root {
+    --navy: #153b2d;
+    --green: #245b43;
+    --red: #bd2835;
+    --gold: #d7ae58;
+    --text: #293a34;
+    --muted: #64746c;
+    --light: #f3f6f3;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: var(--light);
+    color: var(--text);
+    line-height: 1.65;
+}
+
+.container {
+    max-width: 1200px;
+    margin: auto;
+    padding: 20px;
+}
+
+/* HEADER */
+
+.hero {
+    position: relative;
+    overflow: hidden;
+    background: linear-gradient(135deg, #123a2b, #286347);
+    color: white;
+    border-radius: 12px;
+    padding: 43px 30px;
+    text-align: center;
+    border-bottom: 5px solid var(--gold);
+}
+
+.hero::before {
+    content: "⚖";
+    position: absolute;
+    right: 35px;
+    top: -35px;
+    font-size: 180px;
+    color: rgba(255,255,255,0.05);
+}
+
+.hero .subtitle {
+    color: #f3d78f;
+    font-size: 14px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+    font-weight: bold;
+}
+
+.hero h1 {
+    font-size: 30px;
+    line-height: 1.4;
+    text-transform: uppercase;
+    margin-bottom: 12px;
+}
+
+.hero p {
+    color: #e0eee5;
+    font-size: 15px;
+}
+
+/* TOOLBAR */
+
+.toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin: 20px 0;
+}
+
+.back-button {
+    display: inline-block;
+    padding: 10px 17px;
+    background: #64748b;
+    color: white;
+    border-radius: 6px;
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: bold;
+}
+
+.back-button:hover {
+    background: #475569;
+}
+
+.toolbar-label {
+    color: var(--muted);
+    font-size: 13px;
+}
+
+/* SECTION */
+
+.section {
+    margin-top: 28px;
+}
+
+.section-heading {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+    margin-bottom: 17px;
+    padding-bottom: 10px;
+    border-bottom: 2px solid #dce6de;
+}
+
+.section-heading .number {
+    width: 38px;
+    height: 38px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: var(--red);
+    color: white;
+    border-radius: 8px;
+    font-weight: bold;
+    flex-shrink: 0;
+}
+
+.section-heading h2 {
+    color: var(--navy);
+    font-size: 21px;
+    text-transform: uppercase;
+}
+
+/* QUOTE */
+
+.quote-box {
+    background: white;
+    border-left: 5px solid var(--gold);
+    padding: 27px;
+    border-radius: 9px;
+    box-shadow: 0 3px 12px rgba(0,0,0,0.05);
+    text-align: center;
+}
+
+.quote-box .quote-mark {
+    color: var(--red);
+    font-size: 42px;
+    line-height: 1;
+    font-family: Georgia, serif;
+}
+
+.quote-box h2 {
+    color: var(--navy);
+    font-size: 22px;
+    line-height: 1.5;
+    margin: 10px 0;
+}
+
+.quote-box p {
+    color: var(--muted);
+    font-style: italic;
+    font-size: 14px;
+}
+
+/* CORE GRID */
+
+.core-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 16px;
+}
+
+.core-card {
+    background: white;
+    padding: 22px;
+    border-radius: 9px;
+    border: 1px solid #e1e9e2;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    transition: 0.2s;
+}
+
+.core-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.09);
+}
+
+.core-icon {
+    font-size: 30px;
+    margin-bottom: 10px;
+}
+
+.core-card h3 {
+    color: var(--navy);
+    font-size: 17px;
+    margin-bottom: 8px;
+}
+
+.core-card p {
+    color: #586b60;
+    font-size: 14px;
+}
+
+/* LAW CARDS */
+
+.law-grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+}
+
+.law-card {
+    background: white;
+    padding: 21px;
+    border-radius: 9px;
+    border: 1px solid #e1e9e2;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.04);
+    display: flex;
+    gap: 15px;
+    align-items: flex-start;
+}
+
+.law-icon {
+    flex-shrink: 0;
+    width: 48px;
+    height: 48px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: #eaf2eb;
+    border-radius: 10px;
+    font-size: 25px;
+}
+
+.law-card h3 {
+    color: var(--navy);
+    font-size: 16px;
+    margin-bottom: 7px;
+}
+
+.law-card p {
+    color: #586b60;
+    font-size: 14px;
+}
+
+/* RESPONSIBILITY */
+
+.responsibility {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 16px;
+}
+
+.responsibility-card {
+    background: white;
+    padding: 22px;
+    border-radius: 9px;
+    border-top: 4px solid var(--green);
+    box-shadow: 0 2px 8px rgba(0,0,0,0.05);
+}
+
+.responsibility-card h3 {
+    color: var(--navy);
+    font-size: 17px;
+    margin-bottom: 10px;
+}
+
+.responsibility-card ul {
+    padding-left: 20px;
+    color: #586b60;
+    font-size: 14px;
+}
+
+.responsibility-card li {
+    margin-bottom: 8px;
+}
+
+/* WARNING */
+
+.warning-box {
+    background: #fff9ed;
+    border: 1px solid #f0d9a8;
+    border-left: 5px solid #d99b28;
+    padding: 22px;
+    border-radius: 9px;
+}
+
+.warning-box h3 {
+    color: #895b12;
+    font-size: 18px;
+    margin-bottom: 12px;
+}
+
+.warning-box ul {
+    padding-left: 22px;
+    color: #65583e;
+    font-size: 14px;
+}
+
+.warning-box li {
+    margin-bottom: 8px;
+}
+
+/* MESSAGE */
+
+.slogan {
+    background: linear-gradient(135deg, #9d1e2b, #c52b37);
+    color: white;
+    padding: 30px 20px;
+    text-align: center;
+    border-radius: 10px;
+    margin-top: 28px;
+}
+
+.slogan h2 {
+    font-size: 21px;
+    text-transform: uppercase;
+    margin-bottom: 14px;
+}
+
+.slogan p {
+    font-size: 17px;
+    font-weight: bold;
+    line-height: 1.8;
+    color: #fff2d6;
+}
+
+.conclusion {
+    text-align: center;
+    background: white;
+    padding: 25px;
+    border-radius: 9px;
+    margin-top: 25px;
+    border: 1px solid #e1e9e2;
+}
+
+.conclusion h3 {
+    color: var(--navy);
+    font-size: 20px;
+    margin-bottom: 10px;
+}
+
+.conclusion p {
+    color: #586b60;
+    font-size: 15px;
+}
+
+.footer {
+    text-align: center;
+    color: #718078;
+    font-size: 12px;
+    padding: 25px 10px 10px;
+}
+
+/* RESPONSIVE */
+
+@media (max-width: 750px) {
+    .container {
+        padding: 12px;
+    }
+
+    .hero {
+        padding: 32px 18px;
+    }
+
+    .hero h1 {
+        font-size: 22px;
+    }
+
+    .hero p {
+        font-size: 14px;
+    }
+
+    .core-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    .law-grid,
+    .responsibility {
+        grid-template-columns: 1fr;
+    }
+
+    .section-heading h2 {
+        font-size: 17px;
+    }
+
+    .quote-box h2 {
+        font-size: 19px;
+    }
+}
+
+@media (max-width: 430px) {
+    .core-grid {
+        grid-template-columns: 1fr;
+    }
+
+    .law-card {
+        padding: 16px;
+    }
+
+    .toolbar {
+        align-items: flex-start;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<div class="container">
+
+    <!-- TIÊU ĐỀ -->
+    <header class="hero">
+
+        <div class="subtitle">
+            TIỂU ĐOÀN 8, TRUNG ĐOÀN 95       </div>
+
+        <h1>
+            Pháp luật Nhà nước<br>
+            Kỷ luật Quân đội
+        </h1>
+
+        <p>
+            Sống và làm việc theo Hiến pháp và pháp luật -
+            Tự giác chấp hành kỷ luật Quân đội
+        </p>
+
+    </header>
+
+    <!-- THANH CÔNG CỤ -->
+    <div class="toolbar">
+
+        <a href="pho-bien-gdpl.html" class="back-button">
+            ← Quay lại        </a>
+
+        <div class="toolbar-label">
+            Tuyên truyền, phổ biến, giáo dục pháp luật
+        </div>
+
+    </div>
+
+    <!-- THÔNG ĐIỆP -->
+    <section class="section">
+
+        <div class="quote-box">
+
+            <div class="quote-mark">“</div>
+
+            <h2>
+                Sống và làm việc theo Hiến pháp và pháp luật
+            </h2>
+
+            <p>
+                Mỗi cán bộ, chiến sĩ tự giác chấp hành pháp luật
+                Nhà nước, kỷ luật Quân đội và quy định của đơn vị.
+            </p>
+
+        </div>
+
+    </section>
+
+    <!-- Ý NGHĨA -->
+    <section class="section">
+
+        <div class="section-heading">
+            <div class="number">01</div>
+            <h2>Ý nghĩa của việc chấp hành pháp luật, kỷ luật</h2>
+        </div>
+
+        <div class="core-grid">
+
+            <div class="core-card">
+                <div class="core-icon">⚖️</div>
+                <h3>Thượng tôn pháp luật</h3>
+                <p>
+                    Pháp luật là cơ sở để quản lý xã hội,
+                    bảo đảm quyền và nghĩa vụ của công dân,
+                    giữ vững trật tự, kỷ cương và công bằng.
+                </p>
+            </div>
+
+            <div class="core-card">
+                <div class="core-icon">🎖️</div>
+                <h3>Giữ nghiêm kỷ luật Quân đội</h3>
+                <p>
+                    Kỷ luật là sức mạnh của Quân đội,
+                    tạo sự thống nhất trong ý chí và hành động,
+                    bảo đảm đơn vị luôn sẵn sàng nhận và hoàn thành nhiệm vụ.
+                </p>
+            </div>
+
+            <div class="core-card">
+                <div class="core-icon">🛡️</div>
+                <h3>Phòng ngừa vi phạm</h3>
+                <p>
+                    Hiểu biết và tự giác chấp hành pháp luật,
+                    kỷ luật giúp mỗi quân nhân chủ động phòng tránh
+                    sai phạm, bảo vệ bản thân và đồng đội.
+                </p>
+            </div>
+
+            <div class="core-card">
+                <div class="core-icon">🤝</div>
+                <h3>Xây dựng đoàn kết</h3>
+                <p>
+                    Chấp hành nghiêm quy định góp phần xây dựng
+                    môi trường văn hóa quân sự lành mạnh,
+                    đoàn kết, thống nhất và trách nhiệm.
+                </p>
+            </div>
+
+            <div class="core-card">
+                <div class="core-icon">🏅</div>
+                <h3>Xây dựng đơn vị vững mạnh</h3>
+                <p>
+                    Duy trì nền nếp chính quy, chấp hành kỷ luật
+                    nghiêm là nền tảng để xây dựng đơn vị vững mạnh
+                    toàn diện, mẫu mực, tiêu biểu.
+                </p>
+            </div>
+
+            <div class="core-card">
+                <div class="core-icon">🇻🇳</div>
+                <h3>Trách nhiệm với Tổ quốc</h3>
+                <p>
+                    Mỗi quân nhân gương mẫu chấp hành pháp luật,
+                    góp phần bảo vệ an ninh quốc gia, trật tự,
+                    an toàn xã hội và xây dựng đất nước.
+                </p>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- HỆ THỐNG PHÁP LUẬT -->
+    <section class="section">
+
+        <div class="section-heading">
+            <div class="number">02</div>
+            <h2>Một số nội dung pháp luật cần nắm vững</h2>
+        </div>
+
+        <div class="law-grid">
+
+            <div class="law-card">
+                <div class="law-icon">📜</div>
+                <div>
+                    <h3>Hiến pháp nước Cộng hòa xã hội chủ nghĩa Việt Nam</h3>
+                    <p>
+                        Nắm vững những quy định cơ bản về chế độ chính trị,
+                        quyền con người, quyền và nghĩa vụ cơ bản của công dân,
+                        tổ chức bộ máy Nhà nước và trách nhiệm bảo vệ Tổ quốc.
+                    </p>
+                </div>
+            </div>
+
+            <div class="law-card">
+                <div class="law-icon">🛡️</div>
+                <div>
+                    <h3>Luật Quốc phòng</h3>
+                    <p>
+                        Hiểu những quy định về nền quốc phòng toàn dân,
+                        xây dựng lực lượng vũ trang nhân dân,
+                        nhiệm vụ quốc phòng và trách nhiệm của công dân
+                        trong sự nghiệp bảo vệ Tổ quốc.
+                    </p>
+                </div>
+            </div>
+
+            <div class="law-card">
+                <div class="law-icon">🎖️</div>
+                <div>
+                    <h3>Luật Nghĩa vụ quân sự</h3>
+                    <p>
+                        Nắm vững quyền, nghĩa vụ và trách nhiệm của công dân
+                        trong thực hiện nghĩa vụ quân sự;
+                        hiểu rõ trách nhiệm phục vụ tại ngũ và
+                        các quy định liên quan.
+                    </p>
+                </div>
+            </div>
+
+            <div class="law-card">
+                <div class="law-icon">⚔️</div>
+                <div>
+                    <h3>Luật Sĩ quan Quân đội nhân dân Việt Nam</h3>
+                    <p>
+                        Tìm hiểu những quy định về vị trí, chức năng,
+                        quyền và nghĩa vụ, trách nhiệm của sĩ quan
+                        trong xây dựng Quân đội và thực hiện nhiệm vụ.
+                    </p>
+                </div>
+            </div>
+
+            <div class="law-card">
+                <div class="law-icon">🚦</div>
+                <div>
+                    <h3>Pháp luật về trật tự, an toàn giao thông</h3>
+                    <p>
+                        Chấp hành quy tắc giao thông, đội mũ bảo hiểm,
+                        không sử dụng rượu bia khi điều khiển phương tiện,
+                        bảo đảm an toàn cho bản thân và cộng đồng.
+                    </p>
+                </div>
+            </div>
+
+            <div class="law-card">
+                <div class="law-icon">🔐</div>
+                <div>
+                    <h3>Pháp luật về bảo vệ bí mật nhà nước</h3>
+                    <p>
+                        Nâng cao ý thức bảo vệ tài liệu, thông tin,
+                        chấp hành quy định về bảo mật; không tự ý
+                        đăng tải, chia sẻ thông tin thuộc phạm vi
+                        bí mật nhà nước.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- KỶ LUẬT QUÂN ĐỘI -->
+    <section class="section">
+
+        <div class="section-heading">
+            <div class="number">03</div>
+            <h2>Những nội dung về kỷ luật Quân đội</h2>
+        </div>
+
+        <div class="law-grid">
+
+            <div class="law-card">
+                <div class="law-icon">🫡</div>
+                <div>
+                    <h3>Chấp hành mệnh lệnh, chỉ thị</h3>
+                    <p>
+                        Tuyệt đối chấp hành sự lãnh đạo của Đảng,
+                        sự quản lý của Nhà nước, mệnh lệnh của người chỉ huy;
+                        thực hiện đúng chức trách, nhiệm vụ được giao.
+                    </p>
+                </div>
+            </div>
+
+            <div class="law-card">
+                <div class="law-icon">⏰</div>
+                <div>
+                    <h3>Duy trì nền nếp chính quy</h3>
+                    <p>
+                        Thực hiện nghiêm chế độ ngày, tuần,
+                        lễ tiết tác phong quân nhân, giờ giấc sinh hoạt,
+                        học tập, công tác và các quy định của đơn vị.
+                    </p>
+                </div>
+            </div>
+
+            <div class="law-card">
+                <div class="law-icon">👥</div>
+                <div>
+                    <h3>Giữ gìn đoàn kết nội bộ</h3>
+                    <p>
+                        Tôn trọng, giúp đỡ đồng chí, đồng đội;
+                        thực hiện đúng nguyên tắc tập trung dân chủ,
+                        giữ gìn đoàn kết thống nhất trong đơn vị.
+                    </p>
+                </div>
+            </div>
+
+            <div class="law-card">
+                <div class="law-icon">📱</div>
+                <div>
+                    <h3>Sử dụng mạng xã hội đúng quy định</h3>
+                    <p>
+                        Có trách nhiệm khi đăng tải, chia sẻ thông tin;
+                        không phát tán thông tin sai sự thật,
+                        thông tin nội bộ hoặc nội dung vi phạm
+                        quy định bảo vệ bí mật.
+                    </p>
+                </div>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- TRÁCH NHIỆM -->
+    <section class="section">
+
+        <div class="section-heading">
+            <div class="number">04</div>
+            <h2>Trách nhiệm của cán bộ, chiến sĩ</h2>
+        </div>
+
+        <div class="responsibility">
+
+            <div class="responsibility-card">
+                <h3>Đối với cán bộ, người chỉ huy</h3>
+                <ul>
+                    <li>
+                        Gương mẫu trong chấp hành pháp luật,
+                        kỷ luật và quy định của đơn vị.
+                    </li>
+                    <li>
+                        Chủ động tuyên truyền, giáo dục,
+                        hướng dẫn bộ đội nắm chắc các quy định.
+                    </li>
+                    <li>
+                        Duy trì kiểm tra, kịp thời phát hiện,
+                        ngăn ngừa và xử lý vi phạm theo thẩm quyền.
+                    </li>
+                    <li>
+                        Quan tâm nắm bắt tư tưởng, giải quyết
+                        kịp thời những vấn đề nảy sinh trong đơn vị.
+                    </li>
+                </ul>
+            </div>
+
+            <div class="responsibility-card">
+                <h3>Đối với mỗi quân nhân</h3>
+                <ul>
+                    <li>
+                        Tự giác học tập, tìm hiểu và nắm chắc
+                        những quy định pháp luật, kỷ luật liên quan.
+                    </li>
+                    <li>
+                        Chấp hành nghiêm điều lệnh, điều lệ,
+                        chế độ quy định và mệnh lệnh của người chỉ huy.
+                    </li>
+                    <li>
+                        Không vi phạm pháp luật, kỷ luật;
+                        không bao che, tiếp tay cho hành vi sai phạm.
+                    </li>
+                    <li>
+                        Tích cực đấu tranh với những biểu hiện
+                        thiếu trách nhiệm, vi phạm quy định.
+                    </li>
+                </ul>
+            </div>
+
+        </div>
+
+    </section>
+
+    <!-- NHỮNG ĐIỀU CẦN TRÁNH -->
+    <section class="section">
+
+        <div class="section-heading">
+            <div class="number">05</div>
+            <h2>Chủ động phòng ngừa những vi phạm</h2>
+        </div>
+
+        <div class="warning-box">
+
+            <h3>⚠ Những vấn đề cần đặc biệt chú ý</h3>
+
+            <ul>
+                <li>
+                    Không tự ý rời khỏi vị trí, mục tiêu,
+                    địa bàn hoặc thực hiện nhiệm vụ trái quy định.
+                </li>
+                <li>
+                    Không sử dụng rượu, bia và các chất bị cấm
+                    trái quy định; không điều khiển phương tiện
+                    giao thông khi đã sử dụng rượu, bia.
+                </li>
+                <li>
+                    Không đánh bạc, vay nợ trái quy định,
+                    tham gia tệ nạn xã hội hoặc các hành vi vi phạm pháp luật.
+                </li>
+                <li>
+                    Không sử dụng mạng xã hội để đăng tải,
+                    bình luận, chia sẻ thông tin sai sự thật,
+                    thông tin nội bộ hoặc thông tin thuộc phạm vi bí mật.
+                </li>
+                <li>
+                    Không tự ý quay phim, chụp ảnh, ghi âm,
+                    phát tán hình ảnh, tài liệu của đơn vị
+                    trái quy định.
+                </li>
+                <li>
+                    Không chủ quan trong bảo quản, sử dụng
+                    vũ khí, trang bị kỹ thuật, phương tiện
+                    và các vật chất được giao quản lý.
+                </li>
+            </ul>
+
+        </div>
+
+    </section>
+
+    <!-- KHẨU HIỆU -->
+    <section class="slogan">
+
+        <h2>Thông điệp hành động</h2>
+
+        <p>
+            TỰ GIÁC HỌC TẬP - NGHIÊM TÚC CHẤP HÀNH<br>
+            THƯỢNG TÔN PHÁP LUẬT - GIỮ NGHIÊM KỶ LUẬT<br>
+            MỖI CÁN BỘ, CHIẾN SĨ LÀ MỘT TẤM GƯƠNG<br>
+            VỀ CHẤP HÀNH PHÁP LUẬT VÀ KỶ LUẬT QUÂN ĐỘI
+        </p>
+
+    </section>
+
+    <!-- KẾT LUẬN -->
+    <section class="conclusion">
+
+        <h3>Pháp luật nghiêm minh - Kỷ luật tự giác - Đơn vị vững mạnh</h3>
+
+        <p>
+            Chấp hành pháp luật Nhà nước, kỷ luật Quân đội
+            không chỉ là nghĩa vụ mà còn là danh dự, trách nhiệm
+            của mỗi quân nhân. Mỗi cán bộ, chiến sĩ cần thường xuyên
+            tự giác học tập, tu dưỡng, rèn luyện, biến nhận thức
+            thành hành động cụ thể; góp phần xây dựng đơn vị
+            vững mạnh toàn diện, mẫu mực, tiêu biểu.
+        </p>
+
+        <p style="margin-top:15px;color:#bd2835;font-weight:bold;">
+            Kỷ luật là sức mạnh của Quân đội!
+        </p>
+
+    </section>
+
+    <footer class="footer">
+        PHÒNG HỒ CHÍ MINH - TIỂU ĐOÀN
+        <br>
+        Tuyên truyền, phổ biến, giáo dục pháp luật
+    </footer>
+
+</div>
+
+</body>
+</html>

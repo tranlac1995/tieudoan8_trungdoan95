@@ -1,0 +1,836 @@
+﻿
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#092d59">
+<title>Luật Quân đội Nhân dân Việt Nam</title>
+
+<style>
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+:root {
+    --gold: #f2d18a;
+    --navy: #092d59;
+    --blue: #14558b;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    min-height: 100vh;
+    padding: 90px 20px 40px;
+    color: white;
+    overflow-x: hidden;
+
+    background-color: #102e4d;
+    background-image:
+        linear-gradient(
+            135deg,
+            rgba(3, 18, 38, 0.58),
+            rgba(4, 30, 57, 0.62)
+        ),
+        url("./background.jpg");
+    background-position: center center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+}
+
+/* NÚT QUAY LẠI */
+.back-button {
+    position: fixed;
+    top: 18px;
+    left: 18px;
+    z-index: 1000;
+
+    display: inline-flex;
+    align-items: center;
+    gap: 9px;
+
+    padding: 11px 19px;
+    border-radius: 30px;
+
+    color: #17385b;
+    background: linear-gradient(135deg, #fff0c5, #d9b15e);
+
+    text-decoration: none;
+    font-size: 14px;
+    font-weight: 900;
+
+    border: 1px solid rgba(255,255,255,0.7);
+    box-shadow: 0 5px 18px rgba(0,0,0,0.3);
+    transition: 0.25s;
+}
+
+.back-button:hover {
+    transform: translateY(-3px);
+    background: #fff4d4;
+}
+
+/* TIÊU ĐỀ */
+.hero {
+    max-width: 1100px;
+    margin: 0 auto 30px;
+    padding: 30px 20px;
+
+    text-align: center;
+    position: relative;
+    overflow: hidden;
+
+    background: linear-gradient(
+        135deg,
+        rgba(5, 35, 65, 0.88),
+        rgba(12, 65, 103, 0.75)
+    );
+
+    border: 1px solid rgba(255,255,255,0.3);
+    border-bottom: 3px solid var(--gold);
+    border-radius: 22px;
+
+    backdrop-filter: blur(10px);
+    -webkit-backdrop-filter: blur(10px);
+
+    box-shadow: 0 12px 35px rgba(0,0,0,0.3);
+}
+
+.hero::before,
+.hero::after {
+    content: "";
+    position: absolute;
+    width: 180px;
+    height: 180px;
+    border: 1px solid rgba(242,209,138,0.18);
+    border-radius: 50%;
+}
+
+.hero::before {
+    top: -110px;
+    left: -50px;
+}
+
+.hero::after {
+    bottom: -120px;
+    right: -40px;
+}
+
+.hero-icon {
+    width: 78px;
+    height: 78px;
+    margin: 0 auto 15px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 50%;
+    background: linear-gradient(145deg, #f8e7b9, #d3a64d);
+    border: 3px solid #fff0c4;
+
+    font-size: 39px;
+    box-shadow: 0 0 28px rgba(255,220,140,0.3);
+}
+
+.hero h1 {
+    font-size: clamp(21px, 4vw, 34px);
+    font-weight: 900;
+    letter-spacing: 1px;
+    line-height: 1.4;
+    color: white;
+    text-shadow: 0 3px 8px rgba(0,0,0,0.6);
+    position: relative;
+}
+
+.hero p {
+    margin-top: 10px;
+    color: #ffe2a0;
+    font-size: 14px;
+    font-weight: bold;
+    letter-spacing: 3px;
+    position: relative;
+}
+
+.hero-description {
+    max-width: 680px;
+    margin: 16px auto 0;
+    color: rgba(255,255,255,0.88);
+    font-size: 14px;
+    line-height: 1.7;
+    position: relative;
+}
+
+/* KHU VỰC CHUYÊN ĐỀ */
+.content-area {
+    max-width: 1100px;
+    margin: 0 auto;
+}
+
+.section-heading {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    margin-bottom: 18px;
+}
+
+.heading-left {
+    display: flex;
+    align-items: center;
+    gap: 12px;
+}
+
+.heading-icon {
+    width: 43px;
+    height: 43px;
+    border-radius: 13px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background: rgba(242,209,138,0.18);
+    border: 1px solid rgba(242,209,138,0.5);
+    font-size: 22px;
+}
+
+.section-heading h2 {
+    font-size: 18px;
+    color: #fff0c5;
+    letter-spacing: 0.5px;
+}
+
+.section-heading p {
+    color: rgba(255,255,255,0.75);
+    font-size: 12px;
+    margin-top: 5px;
+}
+
+.topic-count {
+    color: #f7dda4;
+    font-size: 12px;
+    font-weight: bold;
+    white-space: nowrap;
+    padding: 8px 13px;
+    border: 1px solid rgba(242,209,138,0.4);
+    border-radius: 20px;
+    background: rgba(4,29,54,0.45);
+}
+
+/* DANH SÁCH CHUYÊN ĐỀ */
+.topic-list {
+    display: grid;
+    grid-template-columns: repeat(2, minmax(0, 1fr));
+    gap: 16px;
+}
+
+/* THẺ CHUYÊN ĐỀ */
+.topic-card {
+    position: relative;
+    overflow: hidden;
+    border-radius: 18px;
+
+    background: rgba(255,255,255,0.93);
+    border: 1px solid rgba(255,255,255,0.7);
+
+    box-shadow: 0 8px 24px rgba(0,0,0,0.22);
+    transition: transform 0.25s, box-shadow 0.25s;
+}
+
+.topic-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 14px 30px rgba(0,0,0,0.3);
+}
+
+.topic-header {
+    min-height: 110px;
+    padding: 19px;
+
+    display: flex;
+    align-items: center;
+    gap: 15px;
+
+    cursor: pointer;
+    user-select: none;
+}
+
+.topic-icon {
+    flex-shrink: 0;
+    width: 62px;
+    height: 62px;
+
+    display: flex;
+    justify-content: center;
+    align-items: center;
+
+    border-radius: 17px;
+    background: linear-gradient(145deg, #1b679e, #0b345f);
+    border: 2px solid rgba(242,209,138,0.85);
+
+    font-size: 30px;
+    box-shadow: 0 5px 13px rgba(9,45,89,0.25);
+}
+
+.topic-info {
+    flex: 1;
+    min-width: 0;
+}
+
+.topic-number {
+    color: #a27a30;
+    font-size: 11px;
+    font-weight: 900;
+    letter-spacing: 1.5px;
+    margin-bottom: 6px;
+}
+
+.topic-title {
+    color: #12385e;
+    font-size: 16px;
+    font-weight: 900;
+    line-height: 1.45;
+}
+
+.topic-subtitle {
+    margin-top: 5px;
+    color: #687d90;
+    font-size: 12px;
+    line-height: 1.5;
+}
+
+.topic-arrow {
+    flex-shrink: 0;
+    width: 31px;
+    height: 31px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+    color: #174a79;
+    background: #e8eff7;
+
+    font-size: 18px;
+    transition: transform 0.3s, background 0.3s;
+}
+
+.topic-card.active .topic-arrow {
+    transform: rotate(180deg);
+    background: #d9e9f8;
+}
+
+/* NỘI DUNG MỞ RỘNG */
+.topic-content {
+    display: grid;
+    grid-template-rows: 0fr;
+    transition: grid-template-rows 0.4s ease;
+}
+
+.topic-card.active .topic-content {
+    grid-template-rows: 1fr;
+}
+
+.topic-content-inner {
+    overflow: hidden;
+}
+
+.topic-body {
+    margin: 0 20px;
+    padding: 18px 0 21px;
+    border-top: 1px solid #dce5ed;
+
+    color: #344b61;
+    font-size: 14px;
+    line-height: 1.8;
+}
+
+.topic-body h3 {
+    color: #174a79;
+    font-size: 14px;
+    margin: 13px 0 5px;
+}
+
+.topic-body h3:first-child {
+    margin-top: 0;
+}
+
+.topic-body p {
+    margin-bottom: 9px;
+    text-align: justify;
+}
+
+.topic-body ul {
+    padding-left: 21px;
+    margin: 5px 0 12px;
+}
+
+.topic-body li {
+    margin-bottom: 7px;
+    text-align: justify;
+}
+
+.topic-body li::marker {
+    color: #b18a43;
+}
+
+.highlight {
+    margin-top: 13px;
+    padding: 12px 14px;
+
+    background: #edf4fa;
+    border-left: 4px solid #c39b4b;
+    border-radius: 5px;
+
+    color: #17436b;
+    font-weight: bold;
+    font-size: 13px;
+}
+
+/* THẺ TỔNG KẾT */
+.summary-card {
+    margin-top: 20px;
+    padding: 22px;
+
+    display: flex;
+    align-items: center;
+    gap: 17px;
+
+    background: linear-gradient(
+        120deg,
+        rgba(5,39,72,0.9),
+        rgba(15,75,113,0.8)
+    );
+
+    border: 1px solid rgba(242,209,138,0.45);
+    border-radius: 17px;
+
+    box-shadow: 0 8px 22px rgba(0,0,0,0.22);
+}
+
+.summary-icon {
+    flex-shrink: 0;
+    width: 54px;
+    height: 54px;
+
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+    border-radius: 50%;
+    background: linear-gradient(145deg, #f8e7b9, #d3a64d);
+    font-size: 27px;
+}
+
+.summary-card h3 {
+    color: #ffe4a8;
+    font-size: 16px;
+    margin-bottom: 7px;
+}
+
+.summary-card p {
+    color: rgba(255,255,255,0.9);
+    font-size: 13px;
+    line-height: 1.7;
+}
+
+/* CHÂN TRANG */
+.footer {
+    margin: 25px auto 0;
+    text-align: center;
+    color: #ffe7b0;
+    font-size: 12px;
+    letter-spacing: 1px;
+    text-shadow: 0 2px 5px rgba(0,0,0,0.7);
+}
+
+/* ĐIỆN THOẠI */
+@media(max-width: 700px) {
+    body {
+        padding: 78px 12px 25px;
+        background-attachment: scroll;
+    }
+
+    .back-button {
+        top: 12px;
+        left: 12px;
+        padding: 9px 14px;
+        font-size: 12px;
+    }
+
+    .hero {
+        padding: 24px 13px;
+        margin-bottom: 23px;
+        border-radius: 17px;
+    }
+
+    .hero-icon {
+        width: 65px;
+        height: 65px;
+        font-size: 32px;
+    }
+
+    .hero p {
+        font-size: 11px;
+        letter-spacing: 2px;
+    }
+
+    .hero-description {
+        font-size: 12px;
+    }
+
+    .section-heading h2 {
+        font-size: 15px;
+    }
+
+    .heading-icon {
+        width: 38px;
+        height: 38px;
+        font-size: 19px;
+    }
+
+    .topic-count {
+        font-size: 10px;
+        padding: 7px 10px;
+    }
+
+    .topic-list {
+        grid-template-columns: 1fr;
+        gap: 12px;
+    }
+
+    .topic-header {
+        min-height: 96px;
+        padding: 14px;
+        gap: 12px;
+    }
+
+    .topic-icon {
+        width: 53px;
+        height: 53px;
+        border-radius: 14px;
+        font-size: 25px;
+    }
+
+    .topic-title {
+        font-size: 14px;
+    }
+
+    .topic-subtitle {
+        font-size: 11px;
+    }
+
+    .topic-body {
+        margin: 0 15px;
+        font-size: 13px;
+    }
+
+    .summary-card {
+        padding: 17px;
+        gap: 13px;
+    }
+
+    .summary-icon {
+        width: 45px;
+        height: 45px;
+        font-size: 23px;
+    }
+
+    .summary-card h3 {
+        font-size: 14px;
+    }
+
+    .summary-card p {
+        font-size: 12px;
+    }
+}
+
+@media(max-width: 380px) {
+    .topic-header {
+        gap: 9px;
+        padding: 12px;
+    }
+
+    .topic-icon {
+        width: 47px;
+        height: 47px;
+        font-size: 22px;
+    }
+
+    .topic-title {
+        font-size: 13px;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<a href="pho-bien-gdpl.html" class="back-button">
+    <span>⬅</span>
+    <span>QUAY LẠI</span>
+</a>
+
+<header class="hero">
+    <div class="hero-icon">🪖</div>
+    <h1>LUẬT QUÂN ĐỘI NHÂN DÂN VIỆT NAM</h1>
+    <p>TIỂU ĐOÀN 8, TRUNG ĐOÀN 95</p>
+    <div class="hero-description">
+        Tìm hiểu những nội dung cơ bản về vị trí, chức năng, nhiệm vụ,
+        quyền và nghĩa vụ của Quân đội nhân dân Việt Nam; nâng cao
+        ý thức chấp hành pháp luật, kỷ luật trong thực hiện nhiệm vụ.
+    </div>
+</header>
+
+<main class="content-area">
+
+    <div class="section-heading">
+        <div class="heading-left">
+            <div class="heading-icon">📚</div>
+            <div>
+                <h2>CÁC CHUYÊN ĐỀ TUYÊN TRUYỀN</h2>
+                <p>Kiến thức pháp luật và trách nhiệm quân nhân</p>
+            </div>
+        </div>
+        <div class="topic-count">05 CHUYÊN ĐỀ</div>
+    </div>
+
+    <div class="topic-list">
+
+        <!-- CHUYÊN ĐỀ 1 -->
+        <div class="topic-card">
+            <div class="topic-header" onclick="toggleTopic(this)">
+                <div class="topic-icon">🛡️</div>
+                <div class="topic-info">
+                    <div class="topic-number">CHUYÊN ĐỀ 01</div>
+                    <div class="topic-title">Vị trí, chức năng và nhiệm vụ của Quân đội nhân dân Việt Nam</div>
+                    <div class="topic-subtitle">Vai trò của Quân đội trong sự nghiệp xây dựng và bảo vệ Tổ quốc</div>
+                </div>
+                <div class="topic-arrow">⌄</div>
+            </div>
+
+            <div class="topic-content">
+                <div class="topic-content-inner">
+                    <div class="topic-body">
+                        <h3>1. Vị trí, vai trò</h3>
+                        <p>Quân đội nhân dân Việt Nam là lực lượng nòng cốt của lực lượng vũ trang nhân dân, có vai trò đặc biệt quan trọng trong sự nghiệp bảo vệ độc lập, chủ quyền, thống nhất và toàn vẹn lãnh thổ của Tổ quốc.</p>
+
+                        <h3>2. Chức năng cơ bản</h3>
+                        <ul>
+                            <li>Đội quân chiến đấu, sẵn sàng chiến đấu bảo vệ Tổ quốc.</li>
+                            <li>Đội quân công tác, tuyên truyền, vận động Nhân dân thực hiện đường lối, chủ trương của Đảng, chính sách và pháp luật của Nhà nước.</li>
+                            <li>Đội quân lao động sản xuất, góp phần phát triển kinh tế - xã hội, xây dựng đất nước.</li>
+                        </ul>
+
+                        <h3>3. Nhiệm vụ chủ yếu</h3>
+                        <ul>
+                            <li>Huấn luyện, nâng cao trình độ và khả năng sẵn sàng chiến đấu.</li>
+                            <li>Bảo vệ chủ quyền, an ninh quốc gia và lợi ích của dân tộc.</li>
+                            <li>Tham gia phòng, chống thiên tai, dịch bệnh, tìm kiếm cứu nạn và giúp đỡ Nhân dân.</li>
+                            <li>Thực hiện các nhiệm vụ quốc phòng, an ninh theo quy định.</li>
+                        </ul>
+
+                        <div class="highlight">
+                            Quân đội nhân dân Việt Nam là lực lượng chính trị, lực lượng chiến đấu trung thành của Đảng, Nhà nước và Nhân dân.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- CHUYÊN ĐỀ 2 -->
+        <div class="topic-card">
+            <div class="topic-header" onclick="toggleTopic(this)">
+                <div class="topic-icon">⚖️</div>
+                <div class="topic-info">
+                    <div class="topic-number">CHUYÊN ĐỀ 02</div>
+                    <div class="topic-title">Nguyên tắc tổ chức, lãnh đạo và hoạt động của Quân đội</div>
+                    <div class="topic-subtitle">Giữ vững bản chất cách mạng và sự thống nhất trong toàn quân</div>
+                </div>
+                <div class="topic-arrow">⌄</div>
+            </div>
+
+            <div class="topic-content">
+                <div class="topic-content-inner">
+                    <div class="topic-body">
+                        <h3>1. Sự lãnh đạo của Đảng</h3>
+                        <p>Quân đội nhân dân Việt Nam đặt dưới sự lãnh đạo tuyệt đối, trực tiếp về mọi mặt của Đảng Cộng sản Việt Nam. Đây là nguyên tắc có ý nghĩa quyết định đối với bản chất cách mạng, mục tiêu và phương hướng xây dựng Quân đội.</p>
+
+                        <h3>2. Nguyên tắc tổ chức và hoạt động</h3>
+                        <ul>
+                            <li>Thực hiện nguyên tắc tập trung dân chủ trong tổ chức và sinh hoạt.</li>
+                            <li>Duy trì chế độ chỉ huy, điều hành và chấp hành mệnh lệnh thống nhất.</li>
+                            <li>Đề cao trách nhiệm của người chỉ huy, chính ủy, chính trị viên và từng quân nhân theo chức trách.</li>
+                            <li>Chấp hành Hiến pháp, pháp luật Nhà nước, điều lệnh, điều lệ và các quy định của Quân đội.</li>
+                        </ul>
+
+                        <h3>3. Ý nghĩa đối với mỗi quân nhân</h3>
+                        <p>Mỗi cán bộ, chiến sĩ phải có bản lĩnh chính trị vững vàng, tuyệt đối trung thành với Tổ quốc, Nhân dân, Đảng và Nhà nước; giữ vững đoàn kết, thống nhất, thực hiện nghiêm chức trách, nhiệm vụ được giao.</p>
+
+                        <div class="highlight">
+                            Đoàn kết, thống nhất, chấp hành nghiêm nguyên tắc tổ chức và sự lãnh đạo của Đảng là nền tảng xây dựng Quân đội vững mạnh.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- CHUYÊN ĐỀ 3 -->
+        <div class="topic-card">
+            <div class="topic-header" onclick="toggleTopic(this)">
+                <div class="topic-icon">🎖️</div>
+                <div class="topic-info">
+                    <div class="topic-number">CHUYÊN ĐỀ 03</div>
+                    <div class="topic-title">Quyền, nghĩa vụ và trách nhiệm của quân nhân</div>
+                    <div class="topic-subtitle">Những điều mỗi cán bộ, chiến sĩ cần nắm vững và thực hiện</div>
+                </div>
+                <div class="topic-arrow">⌄</div>
+            </div>
+
+            <div class="topic-content">
+                <div class="topic-content-inner">
+                    <div class="topic-body">
+                        <h3>1. Quyền của quân nhân</h3>
+                        <p>Quân nhân được Nhà nước và Quân đội bảo đảm các quyền, chế độ, chính sách theo quy định của pháp luật và quy định hiện hành, trong đó có:</p>
+                        <ul>
+                            <li>Được bảo đảm điều kiện sinh hoạt, ăn, ở, quân trang và chăm sóc sức khỏe theo chế độ.</li>
+                            <li>Được học tập, huấn luyện, bồi dưỡng nâng cao trình độ chuyên môn, nghiệp vụ.</li>
+                            <li>Được hưởng các chế độ, chính sách, nghỉ phép, khen thưởng theo quy định và đối tượng áp dụng.</li>
+                            <li>Được bảo vệ danh dự, nhân phẩm và quyền, lợi ích hợp pháp.</li>
+                        </ul>
+
+                        <h3>2. Nghĩa vụ của quân nhân</h3>
+                        <ul>
+                            <li>Trung thành với Tổ quốc, Nhân dân, Đảng và Nhà nước.</li>
+                            <li>Nghiêm chỉnh chấp hành Hiến pháp, pháp luật, điều lệnh, điều lệ và kỷ luật Quân đội.</li>
+                            <li>Chấp hành mệnh lệnh của người chỉ huy theo quy định.</li>
+                            <li>Tích cực học tập, rèn luyện, huấn luyện, nâng cao trình độ và khả năng hoàn thành nhiệm vụ.</li>
+                            <li>Bảo vệ tài sản công, vũ khí, trang bị kỹ thuật và bí mật quân sự.</li>
+                        </ul>
+
+                        <h3>3. Trách nhiệm trong công tác</h3>
+                        <p>Mỗi quân nhân phải nêu cao tinh thần trách nhiệm, chủ động khắc phục khó khăn, đoàn kết giúp đỡ đồng chí, đồng đội, tận tụy với công việc và hoàn thành tốt nhiệm vụ được giao.</p>
+
+                        <div class="highlight">
+                            Quyền lợi luôn gắn liền với nghĩa vụ và trách nhiệm; mỗi quân nhân phải tự giác thực hiện tốt chức trách của mình.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- CHUYÊN ĐỀ 4 -->
+        <div class="topic-card">
+            <div class="topic-header" onclick="toggleTopic(this)">
+                <div class="topic-icon">📜</div>
+                <div class="topic-info">
+                    <div class="topic-number">CHUYÊN ĐỀ 04</div>
+                    <div class="topic-title">Chấp hành kỷ luật Quân đội và xử lý vi phạm</div>
+                    <div class="topic-subtitle">Xây dựng nền nếp chính quy, giữ nghiêm kỷ luật</div>
+                </div>
+                <div class="topic-arrow">⌄</div>
+            </div>
+
+            <div class="topic-content">
+                <div class="topic-content-inner">
+                    <div class="topic-body">
+                        <h3>1. Ý nghĩa của kỷ luật Quân đội</h3>
+                        <p>Kỷ luật là yếu tố quan trọng tạo nên sức mạnh chiến đấu của Quân đội. Chấp hành nghiêm kỷ luật góp phần bảo đảm sự thống nhất về ý chí và hành động, giữ vững nền nếp chính quy, an toàn trong huấn luyện và công tác.</p>
+
+                        <h3>2. Những nội dung cần thực hiện</h3>
+                        <ul>
+                            <li>Chấp hành nghiêm chế độ trực, chế độ công tác và thời gian biểu.</li>
+                            <li>Thực hiện đúng lễ tiết, tác phong quân nhân và quy định về xưng hô, chào hỏi.</li>
+                            <li>Không tự ý rời vị trí, bỏ nhiệm vụ hoặc thực hiện công việc trái thẩm quyền.</li>
+                            <li>Quản lý, sử dụng đúng quy định vũ khí, trang bị, phương tiện và tài sản đơn vị.</li>
+                            <li>Giữ gìn đoàn kết nội bộ, không gây mất an toàn trong đơn vị.</li>
+                            <li>Bảo vệ bí mật Nhà nước, bí mật quân sự và thực hiện đúng quy định khi sử dụng mạng xã hội.</li>
+                        </ul>
+
+                        <h3>3. Xử lý hành vi vi phạm</h3>
+                        <p>Tùy tính chất, mức độ và hậu quả của hành vi, người vi phạm có thể bị xem xét xử lý kỷ luật, xử phạt vi phạm hành chính hoặc truy cứu trách nhiệm hình sự theo quy định của pháp luật.</p>
+
+                        <h3>4. Phòng ngừa vi phạm</h3>
+                        <ul>
+                            <li>Thường xuyên học tập, nắm chắc các quy định.</li>
+                            <li>Phát huy vai trò quản lý, giáo dục của cán bộ các cấp.</li>
+                            <li>Kịp thời phát hiện, nhắc nhở và ngăn ngừa hành vi có nguy cơ vi phạm.</li>
+                            <li>Gắn giáo dục pháp luật với xây dựng chính quy và rèn luyện kỷ luật.</li>
+                        </ul>
+
+                        <div class="highlight">
+                            Tự giác chấp hành kỷ luật là trách nhiệm, danh dự và phẩm chất của mỗi quân nhân.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- CHUYÊN ĐỀ 5 -->
+        <div class="topic-card">
+            <div class="topic-header" onclick="toggleTopic(this)">
+                <div class="topic-icon">🤝</div>
+                <div class="topic-info">
+                    <div class="topic-number">CHUYÊN ĐỀ 05</div>
+                    <div class="topic-title">Xây dựng Quân đội vững mạnh và mối quan hệ quân dân</div>
+                    <div class="topic-subtitle">Phát huy truyền thống Bộ đội Cụ Hồ trong tình hình mới</div>
+                </div>
+                <div class="topic-arrow">⌄</div>
+            </div>
+
+            <div class="topic-content">
+                <div class="topic-content-inner">
+                    <div class="topic-body">
+                        <h3>1. Mục tiêu xây dựng Quân đội</h3>
+                        <p>Xây dựng Quân đội nhân dân Việt Nam cách mạng, chính quy, tinh nhuệ, hiện đại; có chất lượng tổng hợp và sức mạnh chiến đấu ngày càng cao, đáp ứng yêu cầu nhiệm vụ bảo vệ Tổ quốc trong tình hình mới.</p>
+
+                        <h3>2. Trách nhiệm của cán bộ, chiến sĩ</h3>
+                        <ul>
+                            <li>Không ngừng học tập, rèn luyện bản lĩnh chính trị, phẩm chất đạo đức và năng lực công tác.</li>
+                            <li>Tích cực đổi mới phương pháp huấn luyện, nâng cao trình độ chuyên môn và khả năng làm chủ vũ khí, trang bị.</li>
+                            <li>Thực hành tiết kiệm, chống tham ô, lãng phí và các biểu hiện tiêu cực.</li>
+                            <li>Xây dựng môi trường văn hóa quân sự lành mạnh, đoàn kết, dân chủ, kỷ luật.</li>
+                        </ul>
+
+                        <h3>3. Gắn bó máu thịt với Nhân dân</h3>
+                        <ul>
+                            <li>Tôn trọng, gần gũi, gắn bó và giúp đỡ Nhân dân.</li>
+                            <li>Tích cực tham gia công tác dân vận, xây dựng cơ sở chính trị địa phương vững mạnh.</li>
+                            <li>Tham gia phòng chống thiên tai, cứu hộ cứu nạn, hỗ trợ Nhân dân khi gặp khó khăn.</li>
+                            <li>Giữ gìn và phát huy phẩm chất cao đẹp Bộ đội Cụ Hồ.</li>
+                        </ul>
+
+                        <h3>4. Ý nghĩa thực tiễn</h3>
+                        <p>Mỗi hành động, việc làm đúng mực của cán bộ, chiến sĩ đều góp phần xây dựng hình ảnh người quân nhân cách mạng, củng cố niềm tin của Nhân dân đối với Quân đội.</p>
+
+                        <div class="highlight">
+                            Quân đội từ Nhân dân mà ra, vì Nhân dân mà chiến đấu; gắn bó máu thịt với Nhân dân là truyền thống và trách nhiệm của mỗi quân nhân.
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+    </div>
+
+    <!-- TỔNG KẾT -->
+    <div class="summary-card">
+        <div class="summary-icon">⭐</div>
+        <div>
+            <h3>GHI NHỚ VÀ HÀNH ĐỘNG</h3>
+            <p>Mỗi cán bộ, chiến sĩ cần chủ động học tập, tìm hiểu pháp luật; tự giác chấp hành kỷ luật, thực hiện đúng chức trách, nhiệm vụ; góp phần xây dựng đơn vị vững mạnh toàn diện, mẫu mực, tiêu biểu.</p>
+        </div>
+    </div>
+
+</main>
+
+<script>
+function toggleTopic(header) {
+    const card = header.parentElement;
+    card.classList.toggle("active");
+}
+</script>
+
+</body>
+</html>

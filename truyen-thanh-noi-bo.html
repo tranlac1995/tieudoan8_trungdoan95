@@ -1,0 +1,1714 @@
+﻿
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#073b78">
+<title>Phát thanh nội bộ - Phòng Hồ Chí Minh</title>
+
+<style>
+:root {
+    --navy: #073b78;
+    --blue: #0755a5;
+    --gold: #e5bd54;
+    --light: #f3f6fb;
+    --green: #168653;
+    --red: #c83d3d;
+    --text: #26364a;
+}
+
+* { box-sizing: border-box; }
+
+body {
+    margin: 0;
+    font-family: Arial, sans-serif;
+    color: var(--text);
+    background:
+        linear-gradient(rgba(238,243,250,.94),rgba(238,243,250,.96)),
+        url("background.jpg") center/cover fixed;
+}
+
+header {
+    background: linear-gradient(110deg,#062e60,#0755a5);
+    color: white;
+    padding: 20px 4%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 15px;
+    flex-wrap: wrap;
+    border-bottom: 4px solid var(--gold);
+    box-shadow: 0 3px 12px #0002;
+}
+
+.header-title {
+    display: flex;
+    align-items: center;
+    gap: 14px;
+}
+
+.header-icon {
+    width: 55px;
+    height: 55px;
+    border-radius: 14px;
+    background: #ffffff20;
+    display: grid;
+    place-items: center;
+    font-size: 29px;
+}
+
+header h1 {
+    font-size: 23px;
+    margin: 0 0 5px;
+}
+
+header p {
+    margin: 0;
+    font-size: 13px;
+    color: #e6edf8;
+}
+
+.clock {
+    font-family: Consolas, monospace;
+    font-size: 21px;
+    font-weight: bold;
+    background: #ffffff20;
+    padding: 12px 18px;
+    border-radius: 9px;
+}
+
+.container {
+    max-width: 1450px;
+    margin: 25px auto;
+    padding: 0 20px;
+}
+
+.toolbar {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    gap: 12px;
+    flex-wrap: wrap;
+    margin-bottom: 18px;
+}
+
+.back-button {
+    text-decoration: none;
+    color: var(--navy);
+    font-weight: bold;
+    background: white;
+    padding: 11px 17px;
+    border-radius: 9px;
+    box-shadow: 0 2px 8px #00000010;
+}
+
+.admin-button {
+    background: var(--navy);
+    color: white;
+}
+
+.layout {
+    display: grid;
+    grid-template-columns: 0.9fr 1.1fr;
+    gap: 20px;
+}
+
+.panel {
+    background: #ffffffed;
+    border: 1px solid #dce4ef;
+    border-radius: 15px;
+    padding: 22px;
+    box-shadow: 0 4px 15px #17365d12;
+    min-width: 0;
+}
+
+.panel-title {
+    color: var(--navy);
+    font-size: 19px;
+    font-weight: bold;
+    padding-bottom: 13px;
+    margin-bottom: 15px;
+    border-bottom: 2px solid #e9eef5;
+}
+
+.file-list {
+    display: flex;
+    flex-direction: column;
+    gap: 9px;
+    min-height: 180px;
+    max-height: 390px;
+    overflow-y: auto;
+}
+
+.file-item {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 10px;
+    padding: 13px;
+    border: 1px solid #e0e7f0;
+    border-radius: 9px;
+    background: #f9fbfe;
+    cursor: pointer;
+}
+
+.file-item:hover,
+.file-item.active {
+    border-color: var(--blue);
+    background: #edf5ff;
+}
+
+.file-name {
+    font-weight: 600;
+    overflow-wrap: anywhere;
+}
+
+.file-type {
+    color: #77869a;
+    font-size: 12px;
+    margin-top: 4px;
+}
+
+.empty {
+    text-align: center;
+    color: #8794a5;
+    padding: 35px 10px;
+}
+
+.button-row {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 9px;
+    margin-top: 15px;
+}
+
+button {
+    border: 0;
+    border-radius: 8px;
+    padding: 11px 16px;
+    cursor: pointer;
+    font-weight: bold;
+    font-size: 13px;
+    transition: .2s;
+}
+
+button:hover { filter: brightness(.93); }
+button:disabled { opacity: .45; cursor: not-allowed; }
+
+.btn-primary { background: #0755a5; color: white; }
+.btn-success { background: #168653; color: white; }
+.btn-danger { background: #c83d3d; color: white; }
+.btn-gold { background: #e5bd54; color: #24364b; }
+.btn-gray { background: #64748b; color: white; }
+.btn-light { background: #e9eff7; color: var(--navy); }
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13px;
+}
+
+th {
+    background: #edf2f8;
+    color: #52647a;
+    text-align: left;
+    padding: 12px 9px;
+    white-space: nowrap;
+}
+
+td {
+    border-bottom: 1px solid #e8edf3;
+    padding: 12px 9px;
+}
+
+tbody tr:hover { background: #f5f8fc; }
+
+.table-wrap {
+    overflow-x: auto;
+    max-height: 390px;
+    overflow-y: auto;
+}
+
+.status {
+    display: inline-block;
+    padding: 5px 9px;
+    border-radius: 20px;
+    font-size: 11px;
+    font-weight: bold;
+    white-space: nowrap;
+}
+
+.waiting { background: #fff3d5; color: #a66b00; }
+.playing { background: #d9f5e6; color: #137444; }
+.finished { background: #e9edf2; color: #657386; }
+.error { background: #ffe1e1; color: #b42323; }
+
+.player-panel {
+    margin-top: 20px;
+    background: linear-gradient(115deg,#062e60,#0755a5);
+    color: white;
+    border-radius: 15px;
+    padding: 22px;
+    box-shadow: 0 5px 18px #073b7830;
+}
+
+.player-top {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    flex-wrap: wrap;
+    gap: 10px;
+}
+
+.player-label {
+    color: #d8e6f8;
+    font-size: 12px;
+    font-weight: bold;
+    letter-spacing: .8px;
+}
+
+.now-playing {
+    font-size: 20px;
+    font-weight: bold;
+    margin-top: 7px;
+    overflow-wrap: anywhere;
+}
+
+.player-controls {
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    flex-wrap: wrap;
+    margin-top: 18px;
+}
+
+.player-controls button {
+    min-width: 105px;
+    min-height: 42px;
+}
+
+.volume-box {
+    margin-left: auto;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+}
+
+input[type="range"] { accent-color: var(--gold); }
+
+.admin-panel {
+    margin-top: 20px;
+    display: none;
+}
+
+.admin-panel.show { display: block; }
+
+.form-grid {
+    display: grid;
+    grid-template-columns: repeat(2,minmax(0,1fr));
+    gap: 13px;
+}
+
+.form-group {
+    display: flex;
+    flex-direction: column;
+    gap: 7px;
+}
+
+.form-group.full { grid-column: 1/-1; }
+
+label {
+    font-size: 13px;
+    font-weight: bold;
+    color: #52647a;
+}
+
+input, select {
+    width: 100%;
+    border: 1px solid #ccd6e2;
+    border-radius: 8px;
+    padding: 11px 12px;
+    font-size: 14px;
+    background: white;
+    color: var(--text);
+}
+
+input:focus, select:focus {
+    outline: 2px solid #9dc5ef;
+    border-color: var(--blue);
+}
+
+.modal {
+    display: none;
+    position: fixed;
+    inset: 0;
+    z-index: 20;
+    background: #071b35a8;
+    align-items: center;
+    justify-content: center;
+    padding: 15px;
+}
+
+.modal.show { display: flex; }
+
+.modal-content {
+    width: 100%;
+    max-width: 430px;
+    background: white;
+    border-radius: 14px;
+    padding: 25px;
+    box-shadow: 0 10px 35px #0004;
+}
+
+.modal-content h2 {
+    color: var(--navy);
+    margin-top: 0;
+}
+
+.modal-actions {
+    display: flex;
+    justify-content: flex-end;
+    gap: 9px;
+    margin-top: 18px;
+}
+
+.notice {
+    margin-top: 13px;
+    padding: 12px 14px;
+    border-radius: 8px;
+    background: #fff8e6;
+    color: #795a16;
+    font-size: 13px;
+    line-height: 1.6;
+}
+
+footer {
+    text-align: center;
+    color: #7d8ba0;
+    font-size: 12px;
+    padding: 25px 10px;
+}
+
+@media(max-width:850px) {
+    .layout { grid-template-columns: 1fr; }
+    .container { padding: 0 12px; }
+    .panel { padding: 16px; }
+}
+
+@media(max-width:520px) {
+    header { padding: 15px; }
+    header h1 { font-size: 18px; }
+    .clock { font-size: 16px; }
+    .form-grid { grid-template-columns: 1fr; }
+    .form-group.full { grid-column: auto; }
+    .volume-box { margin-left: 0; width: 100%; }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <div class="header-title">
+        <div class="header-icon">🎙️</div>
+        <div>
+            <h1>HỆ THỐNG PHÁT THANH NỘI BỘ</h1>
+            <p>PHÒNG HỒ CHÍ MINH - THƯ VIỆN ĐIỆN TỬ</p>
+        </div>
+    </div>
+    <div class="clock" id="clock">00:00:00</div>
+</header>
+
+<div class="container">
+
+    <div class="toolbar">
+        <a href="index.html" class="back-button">← TRANG CHỦ</a>
+        <button class="admin-button" onclick="openAdmin()">🔐 Quản trị hệ thống</button>
+    </div>
+
+    <div class="layout">
+
+        <section class="panel">
+            <div class="panel-title">📁 KHO PHƯƠNG TIỆN</div>
+
+            <div class="file-list" id="fileList">
+                <div class="empty">Đang tải danh sách chương trình...</div>
+            </div>
+
+            <div class="button-row">
+                <button class="btn-primary" onclick="playSelected()">▶ Phát ngay</button>
+                <button class="btn-gold" onclick="openSchedule()">⏰ Đặt lịch</button>
+            </div>
+
+            <div class="notice">
+                Chọn một chương trình trong danh sách để phát ngay hoặc thiết lập lịch phát sóng.
+            </div>
+        </section>
+
+        <section class="panel">
+            <div class="panel-title">📅 LỊCH PHÁT SÓNG</div>
+
+            <div class="table-wrap">
+                <table>
+                    <thead>
+                        <tr>
+                            <th>GIỜ PHÁT</th>
+                            <th>NỘI DUNG</th>
+                            <th>TẦN SUẤT</th>
+                            <th>TRẠNG THÁI</th>
+                        </tr>
+                    </thead>
+                    <tbody id="scheduleBody">
+                        <tr><td colspan="4" class="empty">Chưa có lịch phát sóng</td></tr>
+                    </tbody>
+                </table>
+            </div>
+
+            <div class="button-row">
+                <button class="btn-light" onclick="editSchedule()">✏ Sửa lịch</button>
+                <button class="btn-danger" onclick="deleteSchedule()">🗑 Xóa lịch</button>
+                <button class="btn-success" onclick="refreshData()">🔄 Làm mới</button>
+                <button class="btn-gray" onclick="showHistory()">📜 Nhật ký</button>
+            </div>
+        </section>
+
+    </div>
+
+    <section class="player-panel">
+        <div class="player-top">
+            <div>
+                <div class="player-label">TRẠNG THÁI PHÁT SÓNG</div>
+                <div class="now-playing" id="nowPlaying">⏸ Hệ thống đang chờ</div>
+            </div>
+            <span class="status waiting" id="systemStatus">ĐANG CHỜ</span>
+        </div>
+
+        <iframe
+            id="audioPlayer"
+            style="width:100%;height:100px;border:0;border-radius:10px;margin-top:15px;"
+            allow="autoplay"
+            src="about:blank">
+        </iframe>
+
+        <div class="player-controls">
+            <button class="btn-gold" onclick="togglePlay()">▶ / ⏸ Phát - Tạm dừng</button>
+            <button class="btn-danger" onclick="stopPlayback()">⏹ DỪNG NGAY</button>
+
+            <div class="volume-box">
+                <span>🔊 Âm lượng</span>
+                <input type="range" id="volume" min="0" max="100" value="100"
+                       oninput="changeVolume(this.value)">
+                <span id="volumeValue">100%</span>
+            </div>
+        </div>
+    </section>
+
+    <section class="panel admin-panel" id="adminPanel">
+        <div class="panel-title">⚙️ QUẢN TRỊ KHO PHƯƠNG TIỆN</div>
+
+        <div class="form-grid">
+            <div class="form-group full">
+                <label>Chọn file âm thanh / video</label>
+                <input type="file" id="mediaFile"
+                       accept=".mp3,.wav,.mp4,audio/*,video/*">
+            </div>
+
+            <div class="form-group full">
+                <label>Tên hiển thị</label>
+                <input type="text" id="mediaName"
+                       placeholder="Nhập tên chương trình phát thanh">
+            </div>
+        </div>
+
+        <div class="button-row">
+            <button class="btn-success" onclick="uploadMedia()">＋ Thêm chương trình</button>
+            <button class="btn-gold" onclick="renameMedia()">✏ Đổi tên</button>
+            <button class="btn-danger" onclick="deleteMedia()">🗑 Xóa file</button>
+            <button class="btn-gray" onclick="logoutAdmin()">Thoát quản trị</button>
+        </div>
+
+        <div class="notice">
+            Chức năng tải lên, đổi tên và xóa được kết nối với Google Drive thông qua Google Apps Script.
+        </div>
+    </section>
+
+</div>
+
+<footer>
+    PHÒNG HỒ CHÍ MINH - HỆ THỐNG PHÁT THANH NỘI BỘ
+</footer>
+
+<div class="modal" id="loginModal">
+    <div class="modal-content">
+        <h2>🔐 Đăng nhập quản trị</h2>
+        <div class="form-group">
+            <label>Mật khẩu quản trị</label>
+            <input type="password" id="adminPassword"
+                   placeholder="Nhập mật khẩu"
+                   onkeydown="if(event.key==='Enter') loginAdmin()">
+        </div>
+        <div class="modal-actions">
+            <button class="btn-light" onclick="closeModal('loginModal')">Hủy</button>
+            <button class="btn-primary" onclick="loginAdmin()">Đăng nhập</button>
+        </div>
+    </div>
+</div>
+
+<div class="modal" id="scheduleModal">
+    <div class="modal-content">
+        <h2>📅 Thiết lập lịch phát</h2>
+
+        <div class="form-group">
+            <label>Nội dung phát</label>
+            <input type="text" id="scheduleFileName" readonly>
+        </div>
+
+        <div class="form-group" style="margin-top:14px">
+            <label>Thời gian phát</label>
+            <input type="time" id="scheduleTime" step="1">
+        </div>
+
+        <div class="form-group" style="margin-top:14px">
+            <label>Tần suất</label>
+            <select id="scheduleRepeat">
+                <option value="Hàng ngày">Hàng ngày</option>
+                <option value="Một lần">Một lần</option>
+            </select>
+        </div>
+
+        <div class="modal-actions">
+            <button class="btn-light" onclick="closeModal('scheduleModal')">Hủy</button>
+            <button class="btn-primary" onclick="saveSchedule()">Lưu lịch</button>
+        </div>
+    </div>
+</div>
+
+<div class="modal" id="historyModal">
+    <div class="modal-content" style="max-width:750px">
+        <h2>📜 Nhật ký phát thanh</h2>
+        <div class="table-wrap">
+            <table>
+                <thead>
+                    <tr>
+                        <th>THỜI GIAN</th>
+                        <th>NỘI DUNG PHÁT</th>
+                        <th>GHI CHÚ</th>
+                    </tr>
+                </thead>
+                <tbody id="historyBody"></tbody>
+            </table>
+        </div>
+        <div class="modal-actions">
+            <button class="btn-primary" onclick="closeModal('historyModal')">Đóng</button>
+        </div>
+    </div>
+</div>
+
+<script>
+/* =====================================================
+   KẾT NỐI GOOGLE APPS SCRIPT
+===================================================== */
+
+const API_URL = "https://script.google.com/macros/s/AKfycbwEtu3apC4589ypygqEnDYEdFD2hjK-eZBZKLg7zmvxo1NTotHfmPLOfNJSS9--Zb6FTw/exec";
+
+const REQUEST_TIMEOUT = 20000;
+const LOAD_TIMEOUT = 15000;
+
+/* =====================================================
+   DỮ LIỆU VÀ TRẠNG THÁI
+===================================================== */
+
+let mediaLibrary = [];
+let scheduleData = [];
+let historyData = [];
+
+let selectedMediaId = null;
+let selectedScheduleId = null;
+let currentPlayingScheduleId = null;
+
+let adminPassword = "";
+let isAdmin = false;
+let editingScheduleId = null;
+
+let isPlaying = false;
+let isLoadingData = false;
+
+let loadScriptElement = null;
+let loadTimeoutId = null;
+let loadRequestVersion = 0;
+
+let triggeredSchedules = {};
+
+const audio = document.getElementById("audioPlayer");
+
+/* =====================================================
+   ĐỒNG HỒ
+===================================================== */
+
+function updateClock() {
+    const now = new Date();
+
+    document.getElementById("clock").textContent =
+        now.toLocaleTimeString("vi-VN") + " | " +
+        now.toLocaleDateString("vi-VN");
+}
+
+updateClock();
+setInterval(updateClock, 1000);
+
+/* =====================================================
+   HÀM TIỆN ÍCH
+===================================================== */
+
+function escapeHTML(value) {
+    return String(value ?? "").replace(/[&<>"']/g, function(char) {
+        return {
+            "&": "&amp;",
+            "<": "&lt;",
+            ">": "&gt;",
+            '"': "&quot;",
+            "'": "&#039;"
+        }[char];
+    });
+}
+
+function showStatus(message, type) {
+    const status = document.getElementById("systemStatus");
+
+    status.textContent = message;
+    status.className = "status " + (type || "waiting");
+}
+
+function getSelectedMedia() {
+    return mediaLibrary.find(
+        item => String(item.id) === String(selectedMediaId)
+    );
+}
+
+function getTodayKey() {
+    const now = new Date();
+
+    return [
+        now.getFullYear(),
+        String(now.getMonth() + 1).padStart(2, "0"),
+        String(now.getDate()).padStart(2, "0")
+    ].join("-");
+}
+
+function rememberTriggeredSchedule(key) {
+    triggeredSchedules[key] = true;
+
+    try {
+        localStorage.setItem(
+            "broadcast_trigger_" + key,
+            "1"
+        );
+    } catch (err) {
+        console.warn("Không lưu được trạng thái lịch trên trình duyệt.", err);
+    }
+}
+
+function hasTriggeredSchedule(key) {
+    if (triggeredSchedules[key]) return true;
+
+    try {
+        return localStorage.getItem(
+            "broadcast_trigger_" + key
+        ) === "1";
+    } catch (err) {
+        return false;
+    }
+}
+
+/* =====================================================
+   HIỂN THỊ KHO PHƯƠNG TIỆN
+===================================================== */
+
+function renderFiles() {
+    const box = document.getElementById("fileList");
+
+    if (!mediaLibrary.length) {
+        box.innerHTML =
+            '<div class="empty">Chưa có chương trình phát thanh</div>';
+        return;
+    }
+
+    box.innerHTML = mediaLibrary.map(item => `
+        <div class="file-item ${String(selectedMediaId) === String(item.id) ? "active" : ""}"
+             onclick="selectMedia('${escapeHTML(item.id)}')">
+
+            <div style="flex:1;min-width:0">
+                <div class="file-name">
+                    🎵 ${escapeHTML(item.name)}
+                </div>
+                <div class="file-type">
+                    ${escapeHTML(item.type || "Tệp phương tiện")}
+                </div>
+            </div>
+
+            <button
+                class="btn-danger"
+                style="padding:8px 11px;flex-shrink:0"
+                onclick="event.stopPropagation();selectMedia('${escapeHTML(item.id)}');deleteMedia()">
+                🗑 Xóa
+            </button>
+        </div>
+    `).join("");
+}
+
+function selectMedia(id) {
+    selectedMediaId = id;
+
+    const item = getSelectedMedia();
+
+    if (item) {
+        document.getElementById("mediaName").value = item.name || "";
+    }
+
+    renderFiles();
+}
+
+/* =====================================================
+   HIỂN THỊ LỊCH PHÁT
+===================================================== */
+
+function renderSchedules() {
+    const body = document.getElementById("scheduleBody");
+
+    if (!scheduleData.length) {
+        body.innerHTML =
+            '<tr><td colspan="4" class="empty">Chưa có lịch phát sóng</td></tr>';
+        return;
+    }
+
+    body.innerHTML = scheduleData.map(item => {
+        let statusClass = "waiting";
+        let statusText = "⏳ Chờ phát";
+
+        if (item.status === "Đang phát") {
+            statusClass = "playing";
+            statusText = "▶ Đang phát";
+        } else if (item.status === "Đã xong") {
+            statusClass = "finished";
+            statusText = "✓ Đã xong";
+        } else if (item.status === "Lỗi file") {
+            statusClass = "error";
+            statusText = "Lỗi file";
+        }
+
+        return `
+            <tr onclick="selectSchedule('${escapeHTML(item.id)}')"
+                style="${String(selectedScheduleId) === String(item.id) ? "background:#edf5ff" : ""}">
+                <td><strong>${escapeHTML(item.time)}</strong></td>
+                <td>${escapeHTML(item.fileName)}</td>
+                <td>${escapeHTML(item.repeat)}</td>
+                <td>
+                    <span class="status ${statusClass}">
+                        ${statusText}
+                    </span>
+                </td>
+            </tr>
+        `;
+    }).join("");
+}
+
+function selectSchedule(id) {
+    selectedScheduleId = id;
+    renderSchedules();
+}
+
+/* =====================================================
+   TẢI DỮ LIỆU TỪ GOOGLE APPS SCRIPT
+===================================================== */
+
+function loadData(force = false) {
+    if (!API_URL.startsWith("https://")) {
+        document.getElementById("fileList").innerHTML =
+            '<div class="empty">Chưa kết nối Google Apps Script</div>';
+        return;
+    }
+
+    if (isLoadingData && !force) return;
+
+    // Đánh dấu yêu cầu mới để bỏ qua phản hồi cũ
+    const requestVersion = ++loadRequestVersion;
+
+    if (loadTimeoutId) {
+        clearTimeout(loadTimeoutId);
+        loadTimeoutId = null;
+    }
+
+    if (loadScriptElement) {
+        loadScriptElement.remove();
+        loadScriptElement = null;
+    }
+
+    isLoadingData = true;
+
+    const callbackName =
+        "broadcastCallback_" +
+        Date.now() + "_" +
+        Math.floor(Math.random() * 1000000);
+
+    let completed = false;
+    let script = document.createElement("script");
+
+    function finishLoading() {
+        if (completed) return;
+        completed = true;
+
+        delete window[callbackName];
+
+        if (requestVersion === loadRequestVersion) {
+            isLoadingData = false;
+
+            if (loadTimeoutId) {
+                clearTimeout(loadTimeoutId);
+                loadTimeoutId = null;
+            }
+
+            if (loadScriptElement === script) {
+                loadScriptElement = null;
+            }
+        }
+
+        script.remove();
+    }
+
+    window[callbackName] = function(data) {
+        if (requestVersion !== loadRequestVersion) {
+            finishLoading();
+            return;
+        }
+
+        finishLoading();
+
+        if (data && data.success) {
+            mediaLibrary = Array.isArray(data.library)
+                ? data.library : [];
+
+            scheduleData = Array.isArray(data.schedules)
+                ? data.schedules : [];
+
+            historyData = Array.isArray(data.history)
+                ? data.history : [];
+
+            if (
+                selectedMediaId &&
+                !mediaLibrary.some(
+                    item => String(item.id) === String(selectedMediaId)
+                )
+            ) {
+                selectedMediaId = null;
+            }
+
+            if (
+                selectedScheduleId &&
+                !scheduleData.some(
+                    item => String(item.id) === String(selectedScheduleId)
+                )
+            ) {
+                selectedScheduleId = null;
+            }
+
+            renderFiles();
+            renderSchedules();
+
+        } else {
+            document.getElementById("fileList").innerHTML =
+                '<div class="empty">Không tải được dữ liệu. Hãy bấm Làm mới.</div>';
+
+            console.error("Lỗi dữ liệu:", data);
+
+            alert(
+                data && data.message
+                    ? data.message
+                    : "Không tải được dữ liệu từ máy chủ."
+            );
+        }
+    };
+
+    loadScriptElement = script;
+
+    script.src =
+        API_URL +
+        "?action=all&callback=" +
+        encodeURIComponent(callbackName) +
+        "&_=" + Date.now();
+
+    script.onerror = function() {
+        if (requestVersion !== loadRequestVersion) return;
+
+        finishLoading();
+
+        document.getElementById("fileList").innerHTML =
+            '<div class="empty">Không thể kết nối máy chủ. Hãy bấm Làm mới.</div>';
+
+        alert("Không thể kết nối Google Apps Script.");
+    };
+
+    loadTimeoutId = setTimeout(function() {
+        if (requestVersion !== loadRequestVersion) return;
+
+        finishLoading();
+
+        document.getElementById("fileList").innerHTML =
+            '<div class="empty">Máy chủ phản hồi quá lâu. Vui lòng bấm Làm mới.</div>';
+
+        alert("Máy chủ phản hồi quá lâu. Bạn hãy kiểm tra kết nối hoặc thử lại.");
+    }, LOAD_TIMEOUT);
+
+    document.body.appendChild(script);
+}
+
+/* =====================================================
+   GỬI DỮ LIỆU LÊN GOOGLE APPS SCRIPT
+===================================================== */
+
+function sendRequest(payload, callback) {
+    if (!API_URL.startsWith("https://")) {
+        alert("Chưa cài địa chỉ Google Apps Script.");
+        return;
+    }
+
+    const requestId =
+        "req_" + Date.now() + "_" +
+        Math.floor(Math.random() * 1000000);
+
+    const frameName = "broadcastFrame_" + requestId;
+
+    // Mỗi yêu cầu có iframe riêng để tránh ghi đè phản hồi
+    const frame = document.createElement("iframe");
+
+    frame.name = frameName;
+    frame.id = frameName;
+    frame.style.display = "none";
+
+    document.body.appendChild(frame);
+
+    let finished = false;
+    let timeoutId = null;
+
+    function cleanup() {
+        window.removeEventListener("message", receiveMessage);
+
+        if (timeoutId) {
+            clearTimeout(timeoutId);
+            timeoutId = null;
+        }
+
+        const oldForm = document.getElementById("form_" + requestId);
+
+        if (oldForm) oldForm.remove();
+
+        setTimeout(function() {
+            frame.remove();
+        }, 1000);
+    }
+
+    function finish(result) {
+        if (finished) return;
+
+        finished = true;
+        cleanup();
+
+        if (typeof callback === "function") {
+            callback(result);
+        }
+    }
+
+    function receiveMessage(event) {
+        if (
+            !event.data ||
+            event.data.type !== "BROADCAST_RESPONSE" ||
+            event.data.requestId !== requestId
+        ) {
+            return;
+        }
+
+        finish(event.data.result);
+    }
+
+    window.addEventListener("message", receiveMessage);
+
+    timeoutId = setTimeout(function() {
+        finish({
+            success: false,
+            message: "Máy chủ không phản hồi. Vui lòng thử lại."
+        });
+    }, REQUEST_TIMEOUT);
+
+    const form = document.createElement("form");
+
+    form.id = "form_" + requestId;
+    form.method = "POST";
+    form.action = API_URL;
+    form.target = frameName;
+    form.style.display = "none";
+
+    const payloadInput = document.createElement("input");
+
+    payloadInput.type = "hidden";
+    payloadInput.name = "payload";
+
+    payloadInput.value = JSON.stringify({
+        ...payload,
+        password: adminPassword,
+        requestId: requestId
+    });
+
+    form.appendChild(payloadInput);
+    document.body.appendChild(form);
+
+    form.submit();
+    form.remove();
+}
+
+/* =====================================================
+   ĐĂNG NHẬP QUẢN TRỊ
+===================================================== */
+
+function openAdmin() {
+    if (isAdmin) {
+        document.getElementById("adminPanel").classList.toggle("show");
+        return;
+    }
+
+    document.getElementById("loginModal").classList.add("show");
+
+    document.getElementById("adminPassword").value = "";
+    document.getElementById("adminPassword").focus();
+}
+
+function loginAdmin() {
+    const password =
+        document.getElementById("adminPassword").value.trim();
+
+    if (!password) {
+        alert("Vui lòng nhập mật khẩu.");
+        return;
+    }
+
+    adminPassword = password;
+
+    sendRequest(
+        { action: "login" },
+        function(result) {
+            if (result && result.success) {
+                isAdmin = true;
+
+                closeModal("loginModal");
+
+                document.getElementById("adminPanel")
+                    .classList.add("show");
+
+                alert("Đăng nhập quản trị thành công.");
+            } else {
+                adminPassword = "";
+                isAdmin = false;
+
+                alert(
+                    result && result.message
+                        ? result.message
+                        : "Mật khẩu không chính xác."
+                );
+            }
+        }
+    );
+}
+
+function logoutAdmin() {
+    isAdmin = false;
+    adminPassword = "";
+
+    document.getElementById("adminPanel")
+        .classList.remove("show");
+
+    alert("Đã thoát chế độ quản trị.");
+}
+
+/* =====================================================
+   THÊM FILE LÊN GOOGLE DRIVE
+===================================================== */
+
+function uploadMedia() {
+    if (!isAdmin) {
+        alert("Vui lòng đăng nhập quản trị.");
+        return;
+    }
+
+    const fileInput = document.getElementById("mediaFile");
+    const file = fileInput.files[0];
+
+    const name =
+        document.getElementById("mediaName").value.trim();
+
+    if (!file) {
+        alert("Vui lòng chọn file âm thanh hoặc video.");
+        return;
+    }
+
+    if (!name) {
+        alert("Vui lòng nhập tên chương trình.");
+        return;
+    }
+
+    const allowed = /\.(mp3|wav|mp4)$/i.test(file.name);
+
+    if (!allowed) {
+        alert("Chỉ hỗ trợ file MP3, WAV và MP4.");
+        return;
+    }
+
+    const reader = new FileReader();
+
+    reader.onerror = function() {
+        alert("Không thể đọc file. Vui lòng thử lại.");
+    };
+
+    reader.onload = function(event) {
+        const base64 = event.target.result.split(",")[1];
+
+        if (!base64) {
+            alert("Dữ liệu file không hợp lệ.");
+            return;
+        }
+
+        sendRequest({
+            action: "upload",
+            name: name,
+            fileName: file.name,
+            mimeType: file.type || "application/octet-stream",
+            base64: base64
+        }, function(result) {
+            if (result && result.success) {
+                alert("Đã tải chương trình lên kho phương tiện.");
+
+                fileInput.value = "";
+                document.getElementById("mediaName").value = "";
+
+                loadData(true);
+            } else {
+                alert(
+                    result && result.message
+                        ? result.message
+                        : "Tải file thất bại."
+                );
+            }
+        });
+    };
+
+    reader.readAsDataURL(file);
+}
+
+/* =====================================================
+   ĐỔI TÊN FILE
+===================================================== */
+
+function renameMedia() {
+    if (!isAdmin) {
+        alert("Vui lòng đăng nhập quản trị.");
+        return;
+    }
+
+    if (!selectedMediaId) {
+        alert("Vui lòng chọn file cần đổi tên.");
+        return;
+    }
+
+    const newName =
+        document.getElementById("mediaName").value.trim();
+
+    if (!newName) {
+        alert("Vui lòng nhập tên mới.");
+        return;
+    }
+
+    sendRequest({
+        action: "rename",
+        id: selectedMediaId,
+        name: newName
+    }, function(result) {
+        if (result && result.success) {
+            alert("Đã đổi tên chương trình.");
+            loadData(true);
+        } else {
+            alert(
+                result && result.message
+                    ? result.message
+                    : "Không đổi được tên."
+            );
+        }
+    });
+}
+
+/* =====================================================
+   XÓA FILE
+===================================================== */
+
+function deleteMedia() {
+    if (!isAdmin) {
+        alert("Vui lòng đăng nhập quản trị.");
+        return;
+    }
+
+    if (!selectedMediaId) {
+        alert("Vui lòng chọn file cần xóa.");
+        return;
+    }
+
+    if (!confirm(
+        "Xóa chương trình này? Các lịch phát liên quan cũng sẽ bị xóa."
+    )) {
+        return;
+    }
+
+    const deletingId = selectedMediaId;
+
+    sendRequest({
+        action: "delete",
+        id: deletingId
+    }, function(result) {
+        if (result && result.success) {
+            selectedMediaId = null;
+
+            alert("Đã xóa chương trình.");
+
+            loadData(true);
+        } else {
+            alert(
+                result && result.message
+                    ? result.message
+                    : "Xóa chương trình thất bại."
+            );
+        }
+    });
+}
+
+/* =====================================================
+   PHÁT CHƯƠNG TRÌNH
+===================================================== */
+
+function playSelected() {
+    if (!selectedMediaId) {
+        alert("Vui lòng chọn chương trình cần phát.");
+        return;
+    }
+
+    const item = getSelectedMedia();
+
+    if (!item) {
+        alert("Không tìm thấy chương trình đã chọn.");
+        return;
+    }
+
+    playMedia(item.url, item.name, "Thủ công", null);
+}
+
+function playMedia(url, name, type, scheduleId = null) {
+    if (!url) {
+        alert("Chương trình chưa có đường dẫn phát.");
+        return;
+    }
+
+    let fileId = "";
+
+    const match = url.match(/\/d\/([a-zA-Z0-9_-]+)/);
+
+    if (match) {
+        fileId = match[1];
+    } else {
+        const idMatch = url.match(/[?&]id=([a-zA-Z0-9_-]+)/);
+
+        if (idMatch) {
+            fileId = idMatch[1];
+        }
+    }
+
+    if (!fileId) {
+        alert("Không tìm thấy mã file Google Drive.");
+        return;
+    }
+
+    const playerUrl =
+        "https://drive.google.com/file/d/" +
+        fileId +
+        "/preview";
+
+    audio.src = playerUrl;
+
+    isPlaying = true;
+    currentPlayingScheduleId = scheduleId;
+
+    document.getElementById("nowPlaying").textContent =
+        "▶ " + type + ": " + name;
+
+    showStatus("ĐANG PHÁT", "playing");
+
+    sendRequest({
+        action: "addHistory",
+        fileName: name,
+        type: type
+    }, function(result) {
+        if (!result || !result.success) {
+            console.warn(
+                "Không ghi được nhật ký phát:",
+                result && result.message
+            );
+        } else {
+            loadData(true);
+        }
+    });
+}
+
+function togglePlay() {
+    alert(
+        "Bạn hãy điều khiển phát hoặc tạm dừng trực tiếp trên trình phát Google Drive."
+    );
+}
+
+function stopPlayback() {
+    audio.src = "about:blank";
+
+    const scheduleId = currentPlayingScheduleId;
+
+    isPlaying = false;
+    currentPlayingScheduleId = null;
+
+    document.getElementById("nowPlaying").textContent =
+        "⏹ Đã dừng";
+
+    showStatus("ĐÃ DỪNG", "finished");
+
+    // Nếu đang phát theo lịch, cập nhật kết thúc lịch
+    if (scheduleId) {
+        sendRequest({
+            action: "finishSchedule",
+            id: scheduleId
+        }, function(result) {
+            if (result && result.success) {
+                loadData(true);
+            } else {
+                console.error(
+                    "Không cập nhật được trạng thái kết thúc lịch:",
+                    result && result.message
+                );
+            }
+        });
+    }
+}
+
+function changeVolume(value) {
+    document.getElementById("volumeValue").textContent =
+        value + "%";
+}
+
+changeVolume(100);
+
+/* =====================================================
+   THIẾT LẬP LỊCH PHÁT
+===================================================== */
+
+function openSchedule() {
+    if (!selectedMediaId) {
+        alert("Vui lòng chọn chương trình trong kho phương tiện.");
+        return;
+    }
+
+    const item = getSelectedMedia();
+
+    if (!item) return;
+
+    editingScheduleId = null;
+
+    document.getElementById("scheduleFileName").value =
+        item.name;
+
+    document.getElementById("scheduleTime").value =
+        "07:00:00";
+
+    document.getElementById("scheduleRepeat").value =
+        "Hàng ngày";
+
+    document.getElementById("scheduleModal")
+        .classList.add("show");
+}
+
+function saveSchedule() {
+    if (!isAdmin) {
+        alert("Vui lòng đăng nhập quản trị để cài lịch.");
+        return;
+    }
+
+    if (!selectedMediaId && !editingScheduleId) {
+        alert("Vui lòng chọn chương trình.");
+        return;
+    }
+
+    const time =
+        document.getElementById("scheduleTime").value;
+
+    const repeat =
+        document.getElementById("scheduleRepeat").value;
+
+    if (!time) {
+        alert("Vui lòng chọn thời gian phát.");
+        return;
+    }
+
+    const item = getSelectedMedia();
+
+    const payload = {
+        action: editingScheduleId
+            ? "editSchedule"
+            : "addSchedule",
+
+        id: editingScheduleId || "",
+        mediaId: selectedMediaId,
+
+        fileName: item
+            ? item.name
+            : document.getElementById("scheduleFileName").value,
+
+        time: time.length === 5
+            ? time + ":00"
+            : time,
+
+        repeat: repeat
+    };
+
+    sendRequest(payload, function(result) {
+        if (result && result.success) {
+            closeModal("scheduleModal");
+
+            editingScheduleId = null;
+
+            alert("Đã lưu lịch phát sóng.");
+
+            loadData(true);
+        } else {
+            alert(
+                result && result.message
+                    ? result.message
+                    : "Không lưu được lịch."
+            );
+        }
+    });
+}
+
+/* =====================================================
+   SỬA LỊCH PHÁT
+===================================================== */
+
+function editSchedule() {
+    if (!isAdmin) {
+        alert("Vui lòng đăng nhập quản trị.");
+        return;
+    }
+
+    if (!selectedScheduleId) {
+        alert("Vui lòng chọn lịch cần sửa.");
+        return;
+    }
+
+    const item = scheduleData.find(
+        x => String(x.id) === String(selectedScheduleId)
+    );
+
+    if (!item) {
+        alert("Không tìm thấy lịch cần sửa.");
+        return;
+    }
+
+    editingScheduleId = item.id;
+    selectedMediaId = item.mediaId;
+
+    document.getElementById("scheduleFileName").value =
+        item.fileName || "";
+
+    document.getElementById("scheduleTime").value =
+        item.time || "07:00:00";
+
+    document.getElementById("scheduleRepeat").value =
+        item.repeat || "Hàng ngày";
+
+    document.getElementById("scheduleModal")
+        .classList.add("show");
+}
+
+/* =====================================================
+   XÓA LỊCH PHÁT
+===================================================== */
+
+function deleteSchedule() {
+    if (!isAdmin) {
+        alert("Vui lòng đăng nhập quản trị.");
+        return;
+    }
+
+    if (!selectedScheduleId) {
+        alert("Vui lòng chọn lịch cần xóa.");
+        return;
+    }
+
+    if (!confirm("Bạn có chắc muốn xóa lịch phát này?")) {
+        return;
+    }
+
+    sendRequest({
+        action: "deleteSchedule",
+        id: selectedScheduleId
+    }, function(result) {
+        if (result && result.success) {
+            selectedScheduleId = null;
+
+            alert("Đã xóa lịch phát.");
+
+            loadData(true);
+        } else {
+            alert(
+                result && result.message
+                    ? result.message
+                    : "Xóa lịch thất bại."
+            );
+        }
+    });
+}
+
+/* =====================================================
+   KIỂM TRA LỊCH PHÁT TỰ ĐỘNG
+===================================================== */
+
+function systemTick() {
+    if (isPlaying) return;
+
+    if (!mediaLibrary.length || !scheduleData.length) {
+        return;
+    }
+
+    const now = new Date();
+    const today = getTodayKey();
+
+    const currentTime =
+        now.toTimeString().slice(0, 5);
+
+    for (const item of scheduleData) {
+        const repeat = String(item.repeat || "");
+        const status = String(item.status || "");
+
+        // Lịch một lần chỉ phát khi đang chờ
+        if (repeat === "Một lần" && status !== "Chờ phát") {
+            continue;
+        }
+
+        // Lịch hàng ngày được phép chạy lại vào ngày tiếp theo
+        if (
+            repeat === "Hàng ngày" &&
+            status !== "Chờ phát" &&
+            status !== "Đang phát"
+        ) {
+            continue;
+        }
+
+        const scheduledTime =
+            String(item.time || "").slice(0, 5);
+
+        if (scheduledTime !== currentTime) continue;
+
+        const triggerKey = today + "_" + item.id;
+
+        // Không kích hoạt lặp lại cùng lịch trong cùng ngày
+        if (hasTriggeredSchedule(triggerKey)) continue;
+
+        const media = mediaLibrary.find(
+            x => String(x.id) === String(item.mediaId)
+        );
+
+        if (!media) {
+            console.error(
+                "Không tìm thấy file của lịch phát:",
+                item.fileName
+            );
+            rememberTriggeredSchedule(triggerKey);
+            continue;
+        }
+
+        // Đánh dấu trước khi gửi yêu cầu để tránh kích hoạt lặp
+        rememberTriggeredSchedule(triggerKey);
+
+        playMedia(
+            media.url,
+            media.name,
+            "Lịch trình",
+            item.id
+        );
+
+        sendRequest({
+            action: "startSchedule",
+            id: item.id
+        }, function(result) {
+            if (result && result.success) {
+                loadData(true);
+            } else {
+                console.error(
+                    "Không cập nhật được trạng thái lịch:",
+                    result && result.message
+                );
+            }
+        });
+
+        // Chỉ xử lý một lịch tại một thời điểm
+        break;
+    }
+}
+
+/* =====================================================
+   NHẬT KÝ PHÁT THANH
+===================================================== */
+
+function showHistory() {
+    const body = document.getElementById("historyBody");
+
+    if (!historyData.length) {
+        body.innerHTML =
+            '<tr><td colspan="3" class="empty">Chưa có lịch sử phát thanh</td></tr>';
+    } else {
+        body.innerHTML = [...historyData].reverse().map(item => `
+            <tr>
+                <td>${escapeHTML(item.timestamp || "")}</td>
+                <td>${escapeHTML(item.fileName || item.file_name || "")}</td>
+                <td>${escapeHTML(item.type || "Thủ công")}</td>
+            </tr>
+        `).join("");
+    }
+
+    document.getElementById("historyModal")
+        .classList.add("show");
+}
+
+/* =====================================================
+   TIỆN ÍCH
+===================================================== */
+
+function refreshData() {
+    loadData(true);
+}
+
+function closeModal(id) {
+    document.getElementById(id)
+        .classList.remove("show");
+}
+
+/* =====================================================
+   KHỞI ĐỘNG HỆ THỐNG
+===================================================== */
+
+loadData();
+
+setInterval(systemTick, 1000);
+
+</script>
+
+</body>
+</html>

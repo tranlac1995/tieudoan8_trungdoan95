@@ -1,0 +1,325 @@
+﻿
+<!DOCTYPE html>
+<html lang="vi">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="theme-color" content="#073b78">
+<title>Thư viện Báo điện tử - Phòng Hồ Chí Minh</title>
+
+<style>
+:root {
+    --navy: #073b78;
+    --blue: #0755a5;
+    --gold: #e5bd54;
+    --white: #ffffff;
+}
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: Arial, sans-serif;
+    background: url("background.jpg") center center / cover fixed no-repeat;
+    min-height: 100vh;
+    color: #17324d;
+}
+
+/* HEADER */
+header {
+    background: rgba(255,255,255,0.95);
+    padding: 18px 15px;
+    text-align: center;
+    border-bottom: 4px solid var(--gold);
+    box-shadow: 0 3px 12px rgba(0,0,0,0.15);
+}
+
+header h1 {
+    color: var(--navy);
+    font-size: 25px;
+    font-weight: bold;
+    text-transform: uppercase;
+}
+
+header p {
+    color: #555;
+    margin-top: 7px;
+    font-size: 14px;
+}
+
+/* MAIN */
+section {
+    max-width: 1100px;
+    margin: 35px auto;
+    padding: 0 20px;
+}
+
+/* BACK BUTTON */
+.back-button {
+    display: inline-block;
+    background: var(--navy);
+    color: white;
+    text-decoration: none;
+    padding: 11px 22px;
+    border-radius: 25px;
+    font-weight: bold;
+    margin-bottom: 25px;
+    transition: 0.3s;
+}
+
+.back-button:hover {
+    background: var(--blue);
+    transform: translateY(-2px);
+}
+
+/* TITLE */
+.page-title {
+    text-align: center;
+    background: rgba(255,255,255,0.94);
+    padding: 22px 15px;
+    border-radius: 16px;
+    border: 2px solid var(--gold);
+    margin-bottom: 30px;
+    box-shadow: 0 5px 15px rgba(0,0,0,0.15);
+}
+
+.page-title h2 {
+    color: var(--navy);
+    font-size: 26px;
+    text-transform: uppercase;
+}
+
+.page-title p {
+    margin-top: 10px;
+    color: #555;
+    font-size: 15px;
+}
+
+/* NEWSPAPER GRID */
+.newspaper-grid {
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 22px;
+}
+
+.newspaper-item {
+    display: block;
+    text-decoration: none;
+    color: #17324d;
+    background: rgba(255,255,255,0.95);
+    border-radius: 18px;
+    padding: 25px 20px;
+    text-align: center;
+    border: 2px solid rgba(229,189,84,0.8);
+    box-shadow: 0 6px 18px rgba(0,0,0,0.16);
+    transition: 0.3s;
+    min-height: 225px;
+}
+
+.newspaper-item:hover {
+    transform: translateY(-7px);
+    background: #ffffff;
+    border-color: var(--navy);
+    box-shadow: 0 10px 25px rgba(0,0,0,0.22);
+}
+
+.newspaper-icon {
+    width: 75px;
+    height: 75px;
+    margin: 0 auto 15px;
+    background: linear-gradient(135deg, var(--navy), var(--blue));
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 35px;
+    color: white;
+    border: 3px solid var(--gold);
+}
+
+.newspaper-item h3 {
+    color: var(--navy);
+    font-size: 19px;
+    margin-bottom: 12px;
+    text-transform: uppercase;
+}
+
+.newspaper-item p {
+    font-size: 14px;
+    line-height: 1.6;
+    color: #555;
+}
+
+.visit-label {
+    display: inline-block;
+    margin-top: 15px;
+    padding: 7px 17px;
+    background: var(--navy);
+    color: white;
+    border-radius: 20px;
+    font-size: 12px;
+    font-weight: bold;
+}
+
+/* FOOTER */
+footer {
+    text-align: center;
+    padding: 20px 10px;
+    margin-top: 45px;
+    background: rgba(7,59,120,0.95);
+    color: white;
+    border-top: 3px solid var(--gold);
+    font-size: 13px;
+    line-height: 1.7;
+}
+
+/* RESPONSIVE */
+@media (max-width: 768px) {
+    .newspaper-grid {
+        grid-template-columns: repeat(2, 1fr);
+    }
+
+    header h1 {
+        font-size: 20px;
+    }
+
+    .page-title h2 {
+        font-size: 21px;
+    }
+}
+
+@media (max-width: 500px) {
+    .newspaper-grid {
+        grid-template-columns: 1fr;
+    }
+
+    section {
+        margin: 20px auto;
+        padding: 0 15px;
+    }
+
+    .newspaper-item {
+        min-height: auto;
+    }
+}
+</style>
+</head>
+
+<body>
+
+<header>
+    <h1>⚓ PHÒNG HỒ CHÍ MINH</h1>
+    <p>THƯ VIỆN ĐIỆN TỬ - TIỂU ĐOÀN</p>
+</header>
+
+<section>
+
+    <a href="sachbao.html" class="back-button">
+        ← QUAY LẠI
+    </a>
+
+    <div class="page-title">
+        <h2>📰 THƯ VIỆN BÁO ĐIỆN TỬ</h2>
+        <p>
+            Cập nhật tin tức thời sự, chính trị, quân sự,
+            quốc phòng và đời sống xã hội
+        </p>
+    </div>
+
+    <div class="newspaper-grid">
+
+        <!-- VNEXPRESS -->
+        <a href="https://vnexpress.net/"
+           target="_blank" rel="noopener noreferrer"
+           class="newspaper-item">
+            <div class="newspaper-icon">📰</div>
+            <h3>BÁO VNEXPRESS</h3>
+            <p>
+                Trang tin tức tổng hợp với nhiều chuyên mục
+                thời sự, kinh doanh, khoa học và đời sống.
+            </p>
+            <span class="visit-label">TRUY CẬP BÁO</span>
+        </a>
+
+        <!-- VIETNAMNET -->
+        <a href="https://vietnamnet.vn/"
+           target="_blank" rel="noopener noreferrer"
+           class="newspaper-item">
+            <div class="newspaper-icon">🌐</div>
+            <h3>BÁO VIETNAMNET</h3>
+            <p>
+                Cập nhật liên tục tin tức chính trị, xã hội,
+                giáo dục, văn hóa và đời sống.
+            </p>
+            <span class="visit-label">TRUY CẬP BÁO</span>
+        </a>
+
+        <!-- TUỔI TRẺ -->
+        <a href="https://tuoitre.vn/"
+           target="_blank" rel="noopener noreferrer"
+           class="newspaper-item">
+            <div class="newspaper-icon">📢</div>
+            <h3>BÁO TUỔI TRẺ</h3>
+            <p>
+                Thông tin thời sự, các vấn đề xã hội,
+                hoạt động thanh niên và đời sống.
+            </p>
+            <span class="visit-label">TRUY CẬP BÁO</span>
+        </a>
+
+        <!-- DÂN TRÍ -->
+        <a href="https://dantri.com.vn/"
+           target="_blank" rel="noopener noreferrer"
+           class="newspaper-item">
+            <div class="newspaper-icon">📚</div>
+            <h3>BÁO DÂN TRÍ</h3>
+            <p>
+                Cập nhật tin tức xã hội, đời sống,
+                giáo dục và các hoạt động nhân ái.
+            </p>
+            <span class="visit-label">TRUY CẬP BÁO</span>
+        </a>
+
+        <!-- TIỀN PHONG -->
+        <a href="https://tienphong.vn/"
+           target="_blank" rel="noopener noreferrer"
+           class="newspaper-item">
+            <div class="newspaper-icon">⭐</div>
+            <h3>BÁO TIỀN PHONG</h3>
+            <p>
+                Tin tức đa dạng về chính trị, xã hội,
+                thanh niên, thể thao và văn hóa.
+            </p>
+            <span class="visit-label">TRUY CẬP BÁO</span>
+        </a>
+
+        <!-- QUÂN ĐỘI NHÂN DÂN -->
+        <a href="https://www.qdnd.vn/"
+           target="_blank" rel="noopener noreferrer"
+           class="newspaper-item">
+            <div class="newspaper-icon">⚓</div>
+            <h3>BÁO QUÂN ĐỘI NHÂN DÂN</h3>
+            <p>
+                Cơ quan của Quân ủy Trung ương và Bộ Quốc phòng;
+                thông tin về quân sự, quốc phòng, xây dựng Quân đội
+                và bảo vệ Tổ quốc.
+            </p>
+            <span class="visit-label">TRUY CẬP BÁO</span>
+        </a>
+
+    </div>
+
+</section>
+
+<footer>
+    <strong>PHÒNG HỒ CHÍ MINH - TIỂU ĐOÀN</strong>
+    <br>
+    Xây dựng môi trường học tập, nghiên cứu và sinh hoạt văn hóa tinh thần
+    trên nền tảng số.
+</footer>
+
+</body>
+</html>
